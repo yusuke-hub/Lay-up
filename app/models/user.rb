@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :name, presence: true
-  validates :account_id, uniqueness: true, length: { in: 8..12 }
+  validates :account_id, presence: true, uniqueness: true, length: { in: 8..12 }
 end

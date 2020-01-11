@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_11_082855) do
+ActiveRecord::Schema.define(version: 2020_01_11_102317) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_01_11_082855) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
-    t.integer "account_id"
+    t.string "account_id"
     t.integer "group_id"
     t.text "profile_image"
     t.datetime "created_at", null: false
