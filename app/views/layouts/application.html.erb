@@ -24,12 +24,9 @@
             <li class="">
                 <%= link_to "   ユーザ一覧", users_path, class:'fas fa-users mr-5 text-dark' %>
             </li>
-            <% if current_user.groups.exists? %>
             <li class="">
                 <%= link_to "   グループ一覧", groups_path, class:'fas fa-users mr-5 text-dark' %>
             </li>
-            <% else %>
-            <% end %>
             <li class="">
                 <%= link_to "   避難計画一覧",  plans_path, class:'fas fa-history mr-5 text-dark' %>
             </li>

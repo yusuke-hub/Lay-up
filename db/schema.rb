@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_12_070726) do
+ActiveRecord::Schema.define(version: 2020_01_12_073450) do
 
   create_table "add_user_to_groups", force: :cascade do |t|
     t.integer "user_id"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_01_12_070726) do
     t.integer "distance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "altitude"
   end
 
   create_table "users", force: :cascade do |t|
