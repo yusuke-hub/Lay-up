@@ -1,5 +1,5 @@
 <h1>ユーザー一覧</h1>
-<table>
+<table class="table table-bordered">
 	<% @users1.each do |users| %>
 	<tr>
 		<th>ユーザー名</th>
@@ -7,7 +7,11 @@
 		<th>所属グループ数</th>
 	</tr>
 	<tr>
-		<td><%= users.name %></td>
+		<td>
+			<%= link_to user_path(users.id) do %>
+			  <%= users.name %>
+			<% end %>
+	    </td>
 		<td>
 			<%= link_to plans_path do %>
 			  <%= users.plans.count %>
@@ -15,7 +19,7 @@
 		</td>
 		<td>
 			<%= link_to groups_path do %>
-			  <%= users.groups.count %>
+			  <%= Group.where(user_id: users.id).count %>
 			<% end %>
 		</td>
 	</tr>
