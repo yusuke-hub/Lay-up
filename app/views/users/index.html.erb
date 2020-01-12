@@ -1,11 +1,11 @@
 <h1>ユーザー一覧</h1>
 <table class="table table-bordered">
-	<% @users1.each do |users| %>
 	<tr>
 		<th>ユーザー名</th>
 		<th>計画数</th>
 		<th>所属グループ数</th>
 	</tr>
+	<% @users1.each do |users| %>
 	<tr>
 		<td>
 			<%= link_to user_path(users.id) do %>
@@ -24,4 +24,4 @@
 		</td>
 	</tr>
 	<% end %>
-</table>
+</table>u
