@@ -8,8 +8,16 @@ class UsersController < ApplicationController
   end
 
   def show
+  	@user = User.find(params[:id])
   end
 
   def edit
   end
+
+  def update
+  end
+  private
+    def user_params
+    	params.require(:user).permit(:email,:encrypted_password,:name,:account_id,:group_id,:profile_image)
+    end
 end

@@ -1,2 +1,19 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>マイページ</h1>
+
+<%= attachment_image_tag @user.profile_image_id, :profile_image, format:'png', class:'profile-img rounded-circle pull-left  center-block my-4', fallback:'no-image.png' %>
+
+<table class="table table-bordered">
+	<tr>
+		<td>ユーザー名</td><td><%= @user.name %></td>
+	</tr>
+	<tr>
+		<td>メールアドレス</td><td><%= @user.email %></td>
+	</tr>
+	<tr>
+		<td>アカウントID</td><td><%= @user.account_id %></td>
+	</tr>
+</table>
+<div class="buttons mt-4">
+<%= link_to "編集", edit_user_path(@user.id), class:'btn btn-sm btn-success' %>
+</div>
+

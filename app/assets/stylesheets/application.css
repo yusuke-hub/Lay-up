@@ -17,12 +17,15 @@
 * {
 	margin: 0;
 	padding: 0;
-	background-color: #F5ECCE;
 }
 
 .nav li {
 	list-style: none;
 	float: left;
+}
+
+.navbar {
+	line-height: 36px;
 }
 
 .clearfix::after {
@@ -35,6 +38,15 @@
 	width: 360px;
 }
 
-.content {
+.table {
+	margin-top: 20px;
+}
+.table td {
+	text-align: center;
+}
+
+.profile-img {
+	width: 100px;
+	display: block;
 	margin: 0 auto;
 }

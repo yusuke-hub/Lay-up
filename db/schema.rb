@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_12_034041) do
+ActiveRecord::Schema.define(version: 2020_01_12_070726) do
 
   create_table "add_user_to_groups", force: :cascade do |t|
     t.integer "user_id"
@@ -28,6 +28,20 @@ ActiveRecord::Schema.define(version: 2020_01_12_034041) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "plans", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "situation_id"
+    t.float "d_latitude"
+    t.float "d_longitude"
+    t.string "d_name"
+    t.float "s_latitude"
+    t.float "s_longitude"
+    t.string "s_name"
+    t.integer "distance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -37,7 +51,7 @@ ActiveRecord::Schema.define(version: 2020_01_12_034041) do
     t.string "name"
     t.string "account_id"
     t.integer "group_id"
-    t.text "profile_image"
+    t.text "profile_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

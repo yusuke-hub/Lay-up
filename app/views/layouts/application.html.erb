@@ -18,14 +18,20 @@
           <%= image_tag "Noah-logo.png", class:'shelter' %>
         <%end%>
     </div>
-    <div class="navbar justify-content-end  clearfix">
+    <div class="navbar justify-content-end clearfix">
         <% if user_signed_in? %>
-        <ul class="nav navbar-expand navbar-right navbar-dark">
+        <ul class="nav navbar-expand navbar-right">
             <li class="">
                 <%= link_to "   ユーザ一覧", users_path, class:'fas fa-users mr-5 text-dark' %>
             </li>
+            <% if current_user.groups.exists? %>
             <li class="">
-                <%= link_to "   避難計画一覧",  plans_index_path, class:'fas fa-history mr-5 text-dark' %>
+                <%= link_to "   グループ一覧", groups_path, class:'fas fa-users mr-5 text-dark' %>
+            </li>
+            <% else %>
+            <% end %>
+            <li class="">
+                <%= link_to "   避難計画一覧",  plans_path, class:'fas fa-history mr-5 text-dark' %>
             </li>
             <li class="">
                 <%= link_to "   ログアウト", destroy_user_session_path, class:"fas fa-sign-out-alt text-dark", method: :delete %>
@@ -46,7 +52,7 @@
         </ul>
     </div>
   </header>
-    <div class="content">
+    <div class="container">
         <%= yield %>
     </div>
 </body>

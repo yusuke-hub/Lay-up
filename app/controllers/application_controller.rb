@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   	user_path(current_user.id)
   end
   def afrter_sign_out_path_for(resource)
+    homes_about_path
   end
   protected
   def configure_permitted_parameters
