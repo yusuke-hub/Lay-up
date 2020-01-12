@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_12_095244) do
+ActiveRecord::Schema.define(version: 2020_01_12_125214) do
 
   create_table "add_user_to_groups", force: :cascade do |t|
     t.integer "user_id"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2020_01_12_095244) do
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.text "caption"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

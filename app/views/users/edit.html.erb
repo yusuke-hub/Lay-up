@@ -1,2 +1,26 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h2>ユーザー情報編集</h2>
+<%= form_for(@user) do |f| %>
+  <%= f.attachment_field :profile_image %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :account_id %>
+    <%= f.number_field :account_id %>
+  </div>
+  <%= f.submit "更新"%>
+<% end %>
+
+
+
+

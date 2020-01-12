@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/81cfb2a25f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 </head>
@@ -22,7 +23,7 @@
         <% if user_signed_in? %>
         <ul class="nav navbar-expand navbar-right">
             <li class="">
-                <%= link_to "   ユーザ一覧", users_path, class:'fas fa-users mr-5 text-dark' %>
+                <%= link_to "   ユーザ一覧", users_path, class:'fas fa-user mr-5 text-dark' %>
             </li>
             <li class="">
                 <%= link_to "   グループ一覧", groups_path, class:'fas fa-users mr-5 text-dark' %>

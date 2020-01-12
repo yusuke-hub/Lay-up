@@ -13,9 +13,9 @@
 			<% end %>
 	    </td>
 		<td>
-		    <% @groups = Group.where(user_id: users.id) %>
+		    <% groups = AddUserToGroup.where(user_id: users.id) %>
 			<%= link_to groups_path do %>
-			  <%= @groups.count %>
+			  <%= groups.count %>
 			<% end %>
 		</td>
 		<td>

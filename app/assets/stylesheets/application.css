@@ -12,7 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
+
+@import "bootstrap";
+
 
 * {
 	margin: 0;
@@ -22,6 +26,9 @@
 .nav li {
 	list-style: none;
 	float: left;
+}
+.nav li a {
+	text-decoration: none;
 }
 
 .navbar {

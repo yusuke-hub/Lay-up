@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   def index
     @users1 = User.all
+    @group = Group.new
+    # @Group.add_user_to＿group.build
     # @q = User.ransack(params[:q])
     # @users2 = @q.result(distinct: true)
-    # @group = Group.new
-    # @Group.add_user_to＿groups.build
   end
 
   def show
@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
+    @user.update(user_params)
   end
 
   def update
