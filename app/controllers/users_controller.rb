@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def index
     @users1 = User.all
-    AddUserToGroup.where(user_id: users.id)
     # @q = User.ransack(params[:q])
     # @users2 = @q.result(distinct: true)
     # @group = Group.new

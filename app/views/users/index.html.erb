@@ -2,8 +2,8 @@
 <table class="table table-bordered">
 	<tr>
 		<th>ユーザー名</th>
-		<th>計画数</th>
 		<th>所属グループ数</th>
+		<th>計画数</th>
 	</tr>
 	<% @users1.each do |users| %>
 	<tr>
@@ -13,13 +13,14 @@
 			<% end %>
 	    </td>
 		<td>
-			<%= link_to plans_path do %>
-			  <%= users.plans.count %>
+		    <% @groups = Group.where(user_id: users.id) %>
+			<%= link_to groups_path do %>
+			  <%= @groups.count %>
 			<% end %>
 		</td>
 		<td>
-			<%= link_to groups_path do %>
-			  <%= Group.where(user_id: users.id).count %>
+			<%= link_to plans_path do %>
+			  <%= users.plans.count %>
 			<% end %>
 		</td>
 	</tr>
