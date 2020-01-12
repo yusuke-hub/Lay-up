@@ -7,22 +7,25 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
 </head>
 
 <body>
+  <header>
     <div class="navbar-brand ">
         <%= link_to homes_about_path do %>
-        <%= image_tag "" %>
+          <%= image_tag "Noah-logo.png", class:'shelter' %>
         <%end%>
     </div>
     <div class="navbar justify-content-end  clearfix">
         <% if user_signed_in? %>
         <ul class="nav navbar-expand navbar-right navbar-dark">
             <li class="">
-                <%= link_to "   ユーザ一覧", users_path, class:'fas fa-users mr-3 text-dark' %>
+                <%= link_to "   ユーザ一覧", users_path, class:'fas fa-users mr-5 text-dark' %>
             </li>
             <li class="">
-                <%= link_to "   避難計画一覧",  plans_index_path, class:'fas fa-history mr-3 text-dark' %>
+                <%= link_to "   避難計画一覧",  plans_index_path, class:'fas fa-history mr-5 text-dark' %>
             </li>
             <li class="">
                 <%= link_to "   ログアウト", destroy_user_session_path, class:"fas fa-sign-out-alt text-dark", method: :delete %>
@@ -31,18 +34,21 @@
         <% else %>
         <ul class="nav navbar-expand navbar-right">
             <li class="">
-                <%= link_to "   About", homes_about_path, class:'fas fa-user-plus mr-4 text-dark'  %>
+                <%= link_to "   About", homes_about_path, class:'fas fa-user-plus mr-5 text-dark'  %>
             </li>
             <li class="">
-                <%= link_to "   新規登録", new_user_registration_path, class:'fas fa-user-plus mr-4 text-dark'  %>
+                <%= link_to "   新規登録", new_user_registration_path, class:'fas fa-user-plus mr-5 text-dark'  %>
             </li>
             <li class="">
                 <%= link_to "   ログイン", new_user_session_path, class:'fas fa-sign-in-alt text-dark' %>
             </li>
             <% end %>
         </ul>
+    </div>    
+  </header>
+    <div class="content">
+        <%= yield %>
     </div>
-    <%= yield %>
 </body>
 
 </html>

@@ -17,6 +17,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	background-color: #F5ECCE;
 }
 
 .nav li {
@@ -30,3 +31,6 @@
   clear: both;
 }
 
+.shelter {
+	width: 360px;
+}
