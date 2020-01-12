@@ -1,5 +1,5 @@
 class AddColumnAltitude < ActiveRecord::Migration[5.2]
   def change
-  	add_column :plans, :altitude, :integer
+  	add_column :users, :altitude, :integer
   end
 end

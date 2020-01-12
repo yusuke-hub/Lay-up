@@ -7,4 +7,6 @@ class PlansController < ApplicationController
 
   def edit
   end
+  private
+    params.require(:plan).permit()
 end
