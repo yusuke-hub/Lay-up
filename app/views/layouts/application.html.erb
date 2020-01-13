@@ -23,28 +23,28 @@
         <% if user_signed_in? %>
         <ul class="nav navbar-expand navbar-right">
             <li class="">
-                <%= link_to "   ユーザ一覧", users_path, class:'fas fa-user mr-5 text-dark' %>
+                <%= link_to "   ユーザ一覧", users_path, class:'mr-5 text-dark' %>
             </li>
             <li class="">
-                <%= link_to "   グループ一覧", groups_path, class:'fas fa-users mr-5 text-dark' %>
+                <%= link_to "   グループ一覧", groups_path, class:'mr-5 text-dark' %>
             </li>
             <li class="">
-                <%= link_to "   避難計画一覧",  plans_path, class:'fas fa-history mr-5 text-dark' %>
+                <%= link_to "   避難計画一覧",  plans_path, class:'mr-5 text-dark' %>
             </li>
             <li class="">
-                <%= link_to "   ログアウト", destroy_user_session_path, class:"fas fa-sign-out-alt text-dark", method: :delete %>
+                <%= link_to "   ログアウト", destroy_user_session_path, class:"text-dark", method: :delete %>
             </li>
         </ul>
         <% else %>
         <ul class="nav navbar-expand navbar-right">
             <li class="">
-                <%= link_to "   About", homes_about_path, class:'fas fa-user-plus mr-5 text-dark'  %>
+                <%= link_to "   About", homes_about_path, class:'mr-5 text-dark'  %>
             </li>
             <li class="">
-                <%= link_to "   新規登録", new_user_registration_path, class:'fas fa-user-plus mr-5 text-dark'  %>
+                <%= link_to "   新規登録", new_user_registration_path, class:'mr-5 text-dark'  %>
             </li>
             <li class="">
-                <%= link_to "   ログイン", new_user_session_path, class:'fas fa-sign-in-alt text-dark' %>
+                <%= link_to "   ログイン", new_user_session_path, class:'text-dark' %>
             </li>
             <% end %>
         </ul>

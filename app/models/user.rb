@@ -7,8 +7,7 @@ class User < ApplicationRecord
   has_many :plans
   has_many :add_user_to_groups
   has_many :groups, :through => :add_user_to_groups
-  accepts_nested_attributes_for :add_user_to_groups, allow_destroy: true
-  attachment :profile_imager
+  attachment :profile_image
   validates :name, presence: true
   validates :account_id, presence: true, uniqueness: true, length: { in: 8..12 }
 
