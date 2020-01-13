@@ -1,59 +1,60 @@
 <h2>ユーザー一覧</h2>
-<%= search_form_for @search do |f| %>
-<%= f.label :name_cont, "ユーザー名" %>
-<%= f.text_field :name_cont %><br />
-<%= f.label :email_eq, "メールアドレス" %><br />
-<%= f.email_field :email_eq %><br />
-<%= f.label :account_id_eq, "アカウントID" %><br />
-<%= f.number_field :account_id_eq %><br />
-<div>
-    <%= f.submit '検索', class:'btn btn-sm btn-secondary mt-3' %>
-</div>
-<% end %>
+  <%= search_form_for @search do |f| %>
+    <%= f.label :name_cont, "ユーザー名" %><br/>
+    <%= f.text_field :name_cont %><br />
+    <%= f.label :email_eq, "メールアドレス" %><br />
+    <%= f.email_field :email_eq %><br />
+    <%= f.label :account_id_eq, "アカウントID" %><br />
+    <%= f.number_field :account_id_eq %><br />
+    <div>
+      <%= f.submit '検索', class:'btn btn-sm btn-secondary mt-3' %>
+    </div>
+  <% end %>
+
 <table class="table table-bordered">
     <tr>
         <th>ユーザー名</th>
         <th>所属グループ数</th>
         <th>計画数</th>
     </tr>
+
     <% if @results %>
-    <% binding.pry %>
-    <% @results.each do |user| %>
-    <tr>
-        <td>
+      <% @results.each do |user| %>
+        <tr>
+          <td>
             <%= link_to user_path(user.id) do %>
-            <%= user.name %>
+              <%= user.name %>
             <% end %>
-        </td>
-        <td>
-            <% groups = AddUserToGroup.where(user_id: user.id) %>
-            <%= groups.count %>
-        </td>
-        <td>
+          </td>
+          <td>
+            <% groups = Belonging.where(user_id: user.id) %>
+              <%= groups.count %>
+          </td>
+          <td>
             <%= link_to plans_path do %>
-            <%= user.plans.count %>
+              <%= user.plans.count %>
             <% end %>
-        </td>
-    </tr>
+          </td>
+        </tr>
     <% end %>
     <% else %>
-    <% @users.each do |user| %>
-    <tr>
-        <td>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
             <%= link_to user_path(user.id) do %>
-            <%= user.name %>
+              <%= user.name %>
             <% end %>
-        </td>
-        <td>
-            <% groups = AddUserToGroup.where(user_id: user.id) %>
+          </td>
+          <td>
+            <% groups = Belonging.where(user_id: user.id) %>
             <%= groups.count %>
-        </td>
-        <td>
+          </td>
+          <td>
             <%= link_to plans_path do %>
-            <%= user.plans.count %>
+              <%= user.plans.count %>
             <% end %>
-        </td>
-    </tr>
+          </td>
+        </tr>
     <% end %>
   <% end %>
 </table>

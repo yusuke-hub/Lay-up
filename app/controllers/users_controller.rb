@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @group = Group.new
-    @group.add_user_to_groups.build
+    @group.belongings.build
     @search = User.search(params[:q])
     @results =
       if params[:q]
@@ -10,7 +10,6 @@ class UsersController < ApplicationController
       else
         User.none
       end
-    # @Group.add_user_to＿group.build
   end
 
   def show

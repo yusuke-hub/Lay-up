@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_110937) do
+ActiveRecord::Schema.define(version: 2020_01_13_122159) do
 
-  create_table "add_user_to_groups", force: :cascade do |t|
+  create_table "belongings", force: :cascade do |t|
     t.integer "user_id"
     t.integer "group_id"
     t.boolean "activation", default: false, null: false
