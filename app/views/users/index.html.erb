@@ -1,6 +1,6 @@
 <h2>ユーザー一覧</h2>
 <%= search_form_for @search do |f| %>
-<%= f.label :name_cont, "ユーザー名" %><br />
+<%= f.label :name_cont, "ユーザー名" %>
 <%= f.text_field :name_cont %><br />
 <%= f.label :email_eq, "メールアドレス" %><br />
 <%= f.email_field :email_eq %><br />
@@ -16,26 +16,8 @@
         <th>所属グループ数</th>
         <th>計画数</th>
     </tr>
-    <% if @results.empty? %>
-    <% @users1.each do |user| %>
-    <tr>
-        <td>
-            <%= link_to user_path(user.id) do %>
-            <%= user.name %>
-            <% end %>
-        </td>
-        <td>
-            <% groups = AddUserToGroup.where(user_id: user.id) %>
-            <%= groups.count %>
-        </td>
-        <td>
-            <%= link_to plans_path do %>
-            <%= user.plans.count %>
-            <% end %>
-        </td>
-    </tr>
-    <% end %>
-    <% else %>
+    <% if @results %>
+    <% binding.pry %>
     <% @results.each do |user| %>
     <tr>
         <td>
@@ -54,5 +36,24 @@
         </td>
     </tr>
     <% end %>
+    <% else %>
+    <% @users.each do |user| %>
+    <tr>
+        <td>
+            <%= link_to user_path(user.id) do %>
+            <%= user.name %>
+            <% end %>
+        </td>
+        <td>
+            <% groups = AddUserToGroup.where(user_id: user.id) %>
+            <%= groups.count %>
+        </td>
+        <td>
+            <%= link_to plans_path do %>
+            <%= user.plans.count %>
+            <% end %>
+        </td>
+    </tr>
     <% end %>
+  <% end %>
 </table>

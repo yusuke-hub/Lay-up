@@ -5,10 +5,10 @@ class UsersController < ApplicationController
     @group.add_user_to_groups.build
     @search = User.search(params[:q])
     @results =
-      if params[:q].empty?
-        User.none
-      else
+      if params[:q]
         @search.result(distinct: true)
+      else
+        User.none
       end
     # @Group.add_user_to＿group.build
   end
@@ -19,11 +19,12 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    @user.update(user_params)
+    # @user.update(user_params)
   end
 
   def update
   end
+
   private
     def user_params
     	params.require(:user).permit(:email,:name,:account_id,:profile_image)
