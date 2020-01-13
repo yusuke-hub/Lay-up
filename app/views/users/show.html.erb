@@ -9,11 +9,15 @@
 	<tr>
 		<td>メールアドレス</td><td><%= @user.email %></td>
 	</tr>
-	<tr>
-		<td>アカウントID</td><td><%= @user.account_id %></td>
-	</tr>
+	<% if @user.id == current_user.id %>
+	  <tr>
+		  <td>アカウントID</td><td><%= @user.account_id %></td>
+	  </tr>
+	<% end %>
 </table>
 <div class="buttons mt-4">
-<%= link_to "編集", edit_user_path(@user.id), class:'btn btn-sm btn-success pull-right' %>
+	<% if @user.id == current_user.id %>
+      <%= link_to "編集", edit_user_path(@user.id), class:'btn btn-sm btn-success pull-right' %>
+    <% end %>
 </div>
 

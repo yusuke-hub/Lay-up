@@ -17,7 +17,9 @@
         <%= link_to homes_about_path do %>
           <%= image_tag "Noah-logo.png", class:'shelter' %>
         <% end %>
-        <p class="welcome text-right">ようこそ、<%= link_to current_user.name, user_path(current_user.id) %>さん</p>
+        <% if user_signed_in? %>
+          <p class="welcome text-right">ようこそ、<%= link_to current_user.name, user_path(current_user.id) %>さん</p>
+        <% end %>
     </div>
     <div class="navbar justify-content-end clearfix">
         <% if user_signed_in? %>
