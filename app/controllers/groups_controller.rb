@@ -9,9 +9,9 @@ class GroupsController < ApplicationController
   def create
   	@group = Group.new(group_params)
     @group.save
-    binding.pry
     redirect_to groups_path
   end
+
   def edit
   end
 

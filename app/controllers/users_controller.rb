@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
   def index
-    @users1 = User.all
+    @users = User.all
     @group = Group.new
     @group.add_user_to_groups.build
     @search = User.search(params[:q])
-    @users2 = @search.result(distinct: true)
+    @results =
+      if params[:q].empty?
+        User.none
+      else
+        @search.result(distinct: true)
+      end
     # @Group.add_user_to＿group.build
   end
 
