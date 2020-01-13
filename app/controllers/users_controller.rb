@@ -3,9 +3,9 @@ class UsersController < ApplicationController
     @users1 = User.all
     @group = Group.new
     @group.add_user_to_groups.build
+    @search = User.search(params[:q])
+    @users2 = @search.result(distinct: true)
     # @Group.add_user_to＿group.build
-    # @q = User.ransack(params[:q])
-    # @users2 = @q.result(distinct: true)
   end
 
   def show

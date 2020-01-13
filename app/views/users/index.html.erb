@@ -1,4 +1,15 @@
-<h1>ユーザー一覧</h1>
+<h2>ユーザー一覧</h2>
+<%= search_form_for @search do |f| %>
+  <%= f.label :name_cont, "ユーザー名" %><br/>
+  <%= f.text_field :name_cont %><br/>
+  <%= f.label :email_eq, "メールアドレス" %><br/>
+  <%= f.email_field :email_eq %><br/>
+  <%= f.label :account_id_eq, "アカウントID" %><br/>
+  <%= f.number_field :account_id_eq %><br/>
+  <div>
+      <%= f.submit '検索', class:'btn btn-sm btn-secondary mt-3' %>
+  </div>
+<% end %>
 <table class="table table-bordered">
     <tr>
         <th>ユーザー名</th>
