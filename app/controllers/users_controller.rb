@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def index
     @users1 = User.all
     @group = Group.new
+    @group.add_user_to_groups.build
     # @Group.add_user_to＿group.build
     # @q = User.ransack(params[:q])
     # @users2 = @q.result(distinct: true)
