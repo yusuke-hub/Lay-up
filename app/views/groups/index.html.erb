@@ -1,14 +1,14 @@
 <div class="container">
     <div class="row">
         <div class="col-5">
-            <%= render 'layouts/g-form', group: @group %>
+            <%= render 'groups/g-form', group: @group %>
         </div>
         <div class="col-7">
             <h2>所属グループ</h2>
             <table class="table table-bordered">
                 <tr>
                     <th>グループ名</th>
-                    <th>説明</th>
+                    <th>メモ</th>
                 </tr>
                 <% @groups.each do |groups| %>
                 <tr>
