@@ -4,7 +4,6 @@
         <th>ユーザー名</th>
         <th>所属グループ数</th>
         <th>計画数</th>
-        <th></th>
     </tr>
     <% @users1.each do |user| %>
     <tr>
@@ -15,9 +14,7 @@
         </td>
         <td>
             <% groups = AddUserToGroup.where(user_id: user.id) %>
-            <%= link_to groups_path do %>
             <%= groups.count %>
-            <% end %>
         </td>
         <td>
             <%= link_to plans_path do %>

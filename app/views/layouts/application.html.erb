@@ -9,7 +9,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/81cfb2a25f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
 </head>
 
 <body>
@@ -17,7 +16,8 @@
     <div class="navbar-brand ">
         <%= link_to homes_about_path do %>
           <%= image_tag "Noah-logo.png", class:'shelter' %>
-        <%end%>
+        <% end %>
+        <p class="welcome text-right">ようこそ、<%= link_to current_user.name, user_path(current_user.id) %>さん</p>
     </div>
     <div class="navbar justify-content-end clearfix">
         <% if user_signed_in? %>
@@ -26,7 +26,7 @@
                 <%= link_to "   ユーザ一覧", users_path, class:'mr-5 text-dark' %>
             </li>
             <li class="">
-                <%= link_to "   グループ一覧", groups_path, class:'mr-5 text-dark' %>
+                <%= link_to "   所属グループ", groups_path, class:'mr-5 text-dark' %>
             </li>
             <li class="">
                 <%= link_to "   避難計画一覧",  plans_path, class:'mr-5 text-dark' %>
