@@ -1,2 +1,18 @@
-<h1>Groups#show</h1>
-<p>Find me in app/views/groups/show.html.erb</p>
+ <h4>メンバーリスト</h4>
+ <table class="table table-bordered">
+ 	<tr>
+ 		<th>ユーザ名</th>
+ 		<th>電話番号</th>
+ 		<th>メールアドレス</th>
+ 		<th>避難計画数</th>
+ 	</tr>
+ 	<tr>
+ 		<% @belonging.each do |b| %>
+ 		 <% member = User.find(id: b.user_id) %>
+ 		  <td><%= member.name %></td>
+ 		  <td><%= member.phone_number %></td>
+ 		  <td><%= member.email %></td>
+ 		  <td><%= member.account_id %></td>
+ 		<% end %>
+ 	</tr>
+ </table>

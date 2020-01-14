@@ -20,6 +20,8 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @my_group = Belonging.find(user_id: current_user.id).group_id
+    @belonging = Belonging.where(group_id: @my_group)
   end
 
   private

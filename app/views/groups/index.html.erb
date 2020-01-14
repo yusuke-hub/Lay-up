@@ -9,7 +9,9 @@
             <% @groups.each do |groups| %>
             <tr>
                 <td>
-                    <%= groups.name %>
+                    <%= link_to group_path(groups.id) do %>
+                      <%= groups.name %>
+                    <% end %>
                 </td>
                 <td>
                     <%= groups.caption %>
