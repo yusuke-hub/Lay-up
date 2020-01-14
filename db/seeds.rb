@@ -92,42 +92,42 @@ Belonging.create!(
     {
       user_id: '1',
       group_id: '1',
-      activation: true,
+      activation: false,
   },
   {
       user_id: '2',
       group_id: '1',
-      activation: true,
+      activation: false,
   },
   {
       user_id: '3',
       group_id: '2',
-      activation: true,
+      activation: false,
   },
   {
       user_id: '4',
       group_id: '2',
-      activation: true,
+      activation: false,
   },
   {
       user_id: '5',
       group_id: '3',
-      activation: true,
+      activation: false,
   },
   {
       user_id: '6',
       group_id: '3',
-      activation: true,
+      activation: false,
   },
   {
       user_id: '7',
       group_id: '4',
-      activation: true,
+      activation: false,
   },
   {
       user_id: '8',
       group_id: '4',
-      activation: true,
+      activation: false,
   },
  ]
 )

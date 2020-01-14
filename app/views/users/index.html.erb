@@ -1,7 +1,7 @@
 <h4>ユーザ検索</h4>
   <%= search_form_for @search do |f| %>
     <%= f.label :name_cont, "ユーザー名" %><br/>
-    <%= f.text_field :name_cont %><br />
+    <%= f.text_field :name_cont %><br/>
     <%= f.label :email_eq, "メールアドレス" %><br />
     <%= f.email_field :email_eq %><br />
     <%= f.label :account_id_eq, "アカウントID" %><br />
@@ -14,7 +14,7 @@
 <table class="table table-bordered">
     <tr>
         <th>ユーザー名</th>
-        <th>所属グループ数</th>
+        <th>マイグループ数</th>
         <th>計画数</th>
     </tr>
 
