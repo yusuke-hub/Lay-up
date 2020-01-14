@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :groups, :through => :belongings
   attachment :profile_image
   validates :name, presence: true
+  validates :phone_number, presence: true
   validates :account_id, presence: true, uniqueness: true, length: { in: 8..12 }
 
 end
