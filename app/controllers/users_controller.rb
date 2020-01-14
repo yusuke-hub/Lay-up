@@ -22,10 +22,12 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
   end
 
   private
     def user_params
-    	params.require(:user).permit(:email,:name,:account_id,:profile_image)
+    	params.require(:user).permit(:email,:name,:account_id,:profile_image,:phone_number)
     end
 end

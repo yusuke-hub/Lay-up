@@ -1,26 +1,22 @@
 <div class="container">
     <div class="row">
-        <div class="col-5">
-            <%= render 'groups/g-form', group: @group %>
-        </div>
-        <div class="col-7">
-            <h2>所属グループ</h2>
-            <table class="table table-bordered">
-                <tr>
-                    <th>グループ名</th>
-                    <th>メモ</th>
-                </tr>
-                <% @groups.each do |groups| %>
-                <tr>
-                    <td>
-                        <%= groups.name %>
-                    </td>
-                    <td>
-                        <%= groups.caption %>
-                    </td>
-                    <% end %>
-                </tr>
-            </table>
-        </div>
+        <h4>所属グループ</h4>
+        <table class="table table-bordered">
+            <tr>
+                <th>グループ名</th>
+                <th>メモ</th>
+            </tr>
+            <% @groups.each do |groups| %>
+            <tr>
+                <td>
+                    <%= groups.name %>
+                </td>
+                <td>
+                    <%= groups.caption %>
+                </td>
+                <% end %>
+            </tr>
+        </table>
+        <%= link_to "グループを作成する", new_group_path, class:'btn btn-md btn-success' %>
     </div>
 </div>

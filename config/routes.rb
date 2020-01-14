@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get 'homes/about'
   resources :users, only: [:index,:show,:edit,:update]
   resources :plans, only: [:index,:create,:show,:edit,:update,:destroy]
-  resources :groups, only: [:index,:create,:show,:edit,:update,:destroy]
+  resources :groups, only: [:new,:index,:create,:show,:edit,:update,:destroy]
 end

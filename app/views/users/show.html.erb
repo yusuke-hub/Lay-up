@@ -1,15 +1,18 @@
-<h2>マイページ</h2>
+<h3>マイページ</h3>
 
-<%= attachment_image_tag @user.profile_image_id, :profile_image, format:'png', class:'profile-img rounded-circle pull-left  center-block my-4', fallback:'no-image.png' %>
+<%= attachment_image_tag @user.profile_image, :profile_image, format:'png', class:'profile-img rounded-circle pull-left  center-block my-4', fallback:'no-image.png' %>
 
 <table class="table table-bordered">
 	<tr>
 		<td>ユーザー名</td><td><%= @user.name %></td>
 	</tr>
-	<tr>
-		<td>メールアドレス</td><td><%= @user.email %></td>
-	</tr>
 	<% if @user.id == current_user.id %>
+	  <tr>
+	  	<td>電話番号</td><td><%= @user.phone_number %></td>
+	  </tr>
+	  <tr>
+		<td>メールアドレス</td><td><%= @user.email %></td>
+	  </tr>
 	  <tr>
 		  <td>アカウントID</td><td><%= @user.account_id %></td>
 	  </tr>
