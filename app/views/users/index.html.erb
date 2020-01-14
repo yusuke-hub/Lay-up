@@ -16,8 +16,8 @@
         <th>ユーザー名</th>
         <th>マイグループ数</th>
         <th>計画数</th>
+        <th></th>
     </tr>
-
     <% if @results %>
       <% @results.each do |user| %>
         <tr>
@@ -36,7 +36,7 @@
             <% end %>
           </td>
         </tr>
-    <% end %>
+      <% end %>
     <% else %>
       <% @users.each do |user| %>
         <tr>

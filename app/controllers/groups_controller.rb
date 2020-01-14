@@ -5,8 +5,8 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @middle = Belonging.where(user_id: current_user.id)
-    @groups = Group.where(id: @middle)
+    @belongings = Belonging.where(user_id: current_user.id)
+    @groups = Group.where(id: @belongings)
   end
 
   def create

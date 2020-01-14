@@ -10,10 +10,19 @@ class UsersController < ApplicationController
       else
         User.none
       end
+    # @belongings = Belonging.where(user_id: current_user.id)
+    # @groups = Group.where(id: @belongings)
   end
 
   def show
   	@user = User.find(params[:id])
+    # @belongings = Belonging.where(user_id: current_user.id)
+    # @belongings.each do |belonging|
+    #   @mygroup = belonging.group_id
+    # @groups = Group.where(id: @belongings)
+    # @groups.each do |group|
+    #   @member_id = group.user_ids
+    # end
   end
 
   def edit
