@@ -8,7 +8,7 @@
 	</tr>
 	<% if @user.id == current_user.id || @user.id == @member_id %>
 	  <tr>
-	  	<td>電話番号</td><td><%= @user._phone_number %></td>
+	  	<td>電話番号</td><td><%= @user.phone_number %></td>
 	  </tr>
 	  <tr>
 		<td>メールアドレス</td><td><%= @user.email %></td>

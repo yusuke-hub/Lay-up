@@ -5,16 +5,20 @@
             <tr>
                 <th>グループ名</th>
                 <th>メモ</th>
+                <th>グループ人数</th>
             </tr>
-            <% @groups.each do |groups| %>
+            <% @groups.each do |group| %>
             <tr>
                 <td>
-                    <%= link_to group_path(groups.id) do %>
-                      <%= groups.name %>
+                    <%= link_to group_path(group.id) do %>
+                      <%= group.name %>
                     <% end %>
                 </td>
                 <td>
-                    <%= groups.caption %>
+                    <%= group.caption %>
+                </td>
+                <td>
+                    <%= Belonging.where(group_id: group.id).count %>
                 </td>
                 <% end %>
             </tr>
