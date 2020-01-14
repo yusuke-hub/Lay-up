@@ -6,7 +6,7 @@
 	<tr>
 		<td>ユーザー名</td><td><%= @user.name %></td>
 	</tr>
-	<% if @user.id == current_user.id || @user.id == @member_id %>
+	<% if @user.id == current_user.id  %>
 	  <tr>
 	  	<td>電話番号</td><td><%= @user.phone_number %></td>
 	  </tr>

@@ -28,16 +28,3 @@ class GroupsController < ApplicationController
     	params.require(:group).permit(:name,:caption)
     end
 end
-
-# 自分が属しているグループたちに、
-# 相手のユーザーが属しているかを調べる
-
-
-# @user = User.find(params[:id])
-# current_user.belongings.each do |belonging|
-#   if Belonging.exists(user_id: @user)
-#     redirect_to user_path(@user)
-#   end
-# end
-
-# redirect_to groupu_path()

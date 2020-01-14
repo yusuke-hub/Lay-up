@@ -15,13 +15,13 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    # @belongings = Belonging.where(user_id: current_user.id)
-    # @belongings.each do |belonging|
-    #   @mygroup = belonging.group_id
-    # @groups = Group.where(id: @belongings)
-    # @groups.each do |group|
-    #   @member_id = group.user_ids
-    # end
+    current_user.belongings.each do |belonging|
+      if belonging.exists(user_id: @user)?
+        redirect_to user_path(@user)
+      else
+        render 'index'
+      end
+    end
   end
 
   def edit
@@ -43,3 +43,16 @@ class UsersController < ApplicationController
     	params.require(:user).permit(:email,:name,:account_id,:profile_image,:phone_number)
     end
 end
+
+# 自分が属しているグループたちに、
+# 相手のユーザーが属しているかを調べる
+
+
+# @user = User.find(params[:id])
+# current_user.belongings.each do |belonging|
+#   if Belonging.exists(user_id: @user)
+#     redirect_to user_path(@user)
+#   end
+# end
+
+# redirect_to groupu_path()
