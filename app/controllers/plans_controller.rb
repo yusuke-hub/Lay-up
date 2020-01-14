@@ -1,9 +1,11 @@
 class PlansController < ApplicationController
   def index
-
+    @user = User.find(params[:id])
+    @plans = Plan.where(user_id: @user.id)
   end
 
   def show
+    @plan = Plan.find(params[:id])
   end
 
   def edit
