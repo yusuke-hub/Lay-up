@@ -20,8 +20,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @my_group = Belonging.find(user_id: current_user.id).group_id
-    @belonging = Belonging.where(group_id: @my_group)
+    @belongings = Belonging.where(user_id: current_user.id)
   end
 
   private
@@ -29,3 +28,16 @@ class GroupsController < ApplicationController
     	params.require(:group).permit(:name,:caption)
     end
 end
+
+# 自分が属しているグループたちに、
+# 相手のユーザーが属しているかを調べる
+
+
+# @user = User.find(params[:id])
+# current_user.belongings.each do |belonging|
+#   if Belonging.exists(user_id: @user)
+#     redirect_to user_path(@user)
+#   end
+# end
+
+# redirect_to groupu_path()

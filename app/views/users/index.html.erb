@@ -17,7 +17,6 @@
         <th>マイグループ数</th>
         <th>計画数</th>
     </tr>
-    <% if @results %>
       <% @results.each do |user| %>
         <tr>
           <td>
@@ -35,25 +34,5 @@
             <% end %>
           </td>
         </tr>
-      <% end %>
-    <% else %>
-      <% @users.each do |user| %>
-        <tr>
-          <td>
-            <%= link_to user_path(user.id) do %>
-              <%= user.name %>
-            <% end %>
-          </td>
-          <td>
-            <% groups = Belonging.where(user_id: user.id) %>
-            <%= groups.count %>
-          </td>
-          <td>
-            <%= link_to plans_path do %>
-              <%= user.plans.count %>
-            <% end %>
-          </td>
-        </tr>
-    <% end %>
   <% end %>
 </table>

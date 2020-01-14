@@ -4,11 +4,10 @@ class UsersController < ApplicationController
     @group = Group.new
     @group.belongings.build
     @search = User.search(params[:q])
-    @results =
       if params[:q]
-        @search.result(distinct: true)
+        @results = @search.result(distinct: true)
       else
-        User.none
+        @results = User.all
       end
     # @belongings = Belonging.where(user_id: current_user.id)
     # @groups = Group.where(id: @belongings)

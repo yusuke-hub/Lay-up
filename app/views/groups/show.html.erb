@@ -6,13 +6,15 @@
  		<th>メールアドレス</th>
  		<th>避難計画数</th>
  	</tr>
- 	<tr>
- 		<% @belonging.each do |b| %>
- 		 <% member = User.find(id: b.user_id) %>
- 		  <td><%= member.name %></td>
- 		  <td><%= member.phone_number %></td>
- 		  <td><%= member.email %></td>
- 		  <td><%= member.account_id %></td>
+ 		<% @belongings.each do |b| %>
+	 		 <% group = b.group %>
+	 		 <% group.users.each do |user| %>
+			 	<tr>
+					<td><%= user.name %></td>
+					<td><%= user.phone_number %></td>
+					<td><%= user.email %></td>
+					<td><%= user.plans.count %></td>
+			 	</tr>
+	 		<% end %>
  		<% end %>
- 	</tr>
  </table>
