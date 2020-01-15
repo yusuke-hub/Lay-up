@@ -16,10 +16,13 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     current_user.belongings.each do |belonging|
-      if belonging.exists(user_id: @user)?
-        redirect_to user_path(@user)
-      else
-        render 'index'
+      @belonging = Belonging.where(group_id: belonging.group_id)
+      @belonging.each do |belonging2|
+        if belonging2.exists(user_id: @user)?
+          redirect_to user_path(@user)
+        else
+          render 'index'
+        end
       end
     end
   end
