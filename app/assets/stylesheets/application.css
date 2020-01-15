@@ -39,6 +39,7 @@ h4 {
 
 .navbar {
 	line-height: 36px;
+	margin-right: 54px;
 }
 
 .clearfix::after {
@@ -56,9 +57,12 @@ h4 {
     text-align: right!important;
     position: absolute;
     right: 70px;
-    top: 90px;
-
+    top: 172px;
 }
+.icon {
+	right: 143px;
+}
+
 .table {
 	margin-top: 20px;
 }

@@ -3,7 +3,8 @@
           <%= image_tag "Noah-logo.png", class:'shelter' %>
         <% end %>
         <% if user_signed_in? %>
-          <p class="welcome text-right">ようこそ、<%= link_to current_user.name, user_path(current_user.id) %>さん</p>
+          <p><i class="welcome icon fa fa-user"></i></p>
+          <p class="welcome text-right"><%= link_to current_user.name, user_path(current_user.id) %></p>
         <% end %>
     </div>
     <div class="navbar justify-content-end clearfix">
