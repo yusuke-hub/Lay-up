@@ -1,5 +1,5 @@
     <div class="navbar-brand ">
-        <%= link_to homes_about_path do %>
+        <%= link_to root_path do %>
           <%= image_tag "Noah-logo.png", class:'shelter' %>
         <% end %>
         <% if user_signed_in? %>
@@ -26,7 +26,7 @@
         <% else %>
         <ul class="nav navbar-expand navbar-right">
             <li class="">
-                <%= link_to "   About", homes_about_path, class:'mr-5 text-dark'  %>
+                <%= link_to "   About", root_path, class:'mr-5 text-dark'  %>
             </li>
             <li class="">
                 <%= link_to "   新規登録", new_user_registration_path, class:'mr-5 text-dark'  %>
