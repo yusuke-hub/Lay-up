@@ -8,21 +8,21 @@
                 <th>メモ</th>
                 <th>グループ人数</th>
             </tr>
-            <% @groups.each do |group| %>
+            <% @belongings.each do |belonging| %>
             <tr>
                 <td>
-                    <%= group.created_at.strftime('%Y/%m/%d') %>
+                    <%= belonging.group.created_at.strftime('%Y/%m/%d') %>
                 </td>
                 <td>
-                    <%= link_to group_path(group.id) do %>
-                      <%= group.name %>
+                    <%= link_to group_path(belonging.group.id) do %>
+                      <%= belonging.group.name %>
                     <% end %>
                 </td>
                 <td>
-                    <%= group.caption %>
+                    <%= belonging.group.caption %>
                 </td>
                 <td>
-                    <%= Belonging.where(group_id: group.id).count %>
+                    <%= Belonging.where(group_id: belonging.group.id).count %>
                 </td>
                 <% end %>
             </tr>

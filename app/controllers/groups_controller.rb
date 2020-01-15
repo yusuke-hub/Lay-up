@@ -5,15 +5,14 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @belongings = Belonging.where(user_id: current_user.id)
-    @groups = Group.where(id: @belongings)
+    @belongings = current_user.belongings
   end
 
   def create
   	@group = Group.new(group_params)
     @group.belongings.build user: current_user
     @group.save
-    redirect_to users_path
+    redirect_to  groups_path
   end
 
   def edit
