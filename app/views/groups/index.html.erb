@@ -6,7 +6,8 @@
                 <th>作成日時</th>
                 <th>グループ名</th>
                 <th>メモ</th>
-                <th>グループ人数</th>
+                <th>人数</th>
+                <th></th>
             </tr>
             <% @belongings.each do |belonging| %>
             <tr>
@@ -23,6 +24,10 @@
                 </td>
                 <td>
                     <%= Belonging.where(group_id: belonging.group.id).count %>
+                </td>
+                <td>
+                    <%= link_to "編集", edit_group_path(belonging.group), class:'btn btn-sm btn-success mr-3' %>
+                    <%= link_to "削除", group_path(belonging.group), class:'btn btn-sm btn-danger', method: :delete %>
                 </td>
                 <% end %>
             </tr>

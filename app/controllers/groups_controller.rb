@@ -11,11 +11,26 @@ class GroupsController < ApplicationController
   def create
   	@group = Group.new(group_params)
     @group.belongings.build user: current_user
-    @group.save
-    redirect_to  groups_path
+    if @group.save
+      redirect_to  groups_path
+    else
+      render 'new'
+    end
   end
 
   def edit
+    @group = Group.find(params[:id])
+  end
+
+  def update
+    @group = Group.find(params[:id])
+    @group.update(group_params)
+  end
+
+  def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
+    redirect_to groups_path
   end
 
   def show
