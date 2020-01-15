@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :plans
   has_many :belongings
   has_many :groups, :through => :belongings
+  has_many :comments
   attachment :profile_image
   validates :name, presence: true
   validates :phone_number, presence: true
