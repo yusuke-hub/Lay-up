@@ -1,2 +1,24 @@
-<h1>Plans#show</h1>
-<p>Find me in app/views/plans/show.html.erb</p>
+<table class="table table-bordered">
+	<tr>
+		<th>日付</th>
+		<th>出発地</th>
+		<th>避難先</th>
+		<th>距離</th>
+		<th>メモ</th>
+		<th></th>
+	</tr>
+	<tr>
+		<td><%= @plan.created_at.strftime('%Y/%m/%d')  %></td>
+		<td><%= @plan.d_name %></td>
+		<td><%= @plan.s_name %></td>
+		<td><%= @plan.distance %></td>
+		<td><%= @plan.memo %></td>
+		<td>
+			<%= link_to "編集", edit_plan_path(@plan.id), class:'btn btn-sm btn-success' %>
+		</td>
+		<td>
+			<%= link_to "削除", plan_path, class:'btn btn-sm btn-danger', method: :delete %>
+		</td>
+		<td></td>
+	</tr>
+</table>
