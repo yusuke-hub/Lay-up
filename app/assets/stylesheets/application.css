@@ -71,3 +71,22 @@ h4 {
 	display: block;
 	margin: 0 auto;
 }
+
+/*フッター*/
+.wrapper {
+	min-height: 100vh;
+	position: relative;
+	padding-bottom: 120px;
+	box-sizing: border-box;
+}
+footer {
+	width: 100%;
+	height:120px;
+	background-color: #7DB4E6;
+	position: absolute;
+	bottom: 0;
+}
+
+footer p {
+	line-height: 120px;
+}

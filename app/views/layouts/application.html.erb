@@ -12,49 +12,14 @@
 </head>
 
 <body>
-  <header>
-    <div class="navbar-brand ">
-        <%= link_to homes_about_path do %>
-          <%= image_tag "Noah-logo.png", class:'shelter' %>
-        <% end %>
-        <% if user_signed_in? %>
-          <p class="welcome text-right">ようこそ、<%= link_to current_user.name, user_path(current_user.id) %>さん</p>
-        <% end %>
-    </div>
-    <div class="navbar justify-content-end clearfix">
-        <% if user_signed_in? %>
-        <ul class="nav navbar-expand navbar-right">
-            <li class="">
-                <%= link_to "   ユーザ 検索", users_path, class:'mr-5 text-dark' %>
-            </li>
-            <li class="">
-                <%= link_to "    マイグループ", groups_path, class:'mr-5 text-dark' %>
-            </li>
-            <li class="">
-                <%= link_to "   避難計画一覧",  plans_path, class:'mr-5 text-dark' %>
-            </li>
-            <li class="">
-                <%= link_to "   ログアウト", destroy_user_session_path, class:"text-dark", method: :delete %>
-            </li>
-        </ul>
-        <% else %>
-        <ul class="nav navbar-expand navbar-right">
-            <li class="">
-                <%= link_to "   About", homes_about_path, class:'mr-5 text-dark'  %>
-            </li>
-            <li class="">
-                <%= link_to "   新規登録", new_user_registration_path, class:'mr-5 text-dark'  %>
-            </li>
-            <li class="">
-                <%= link_to "   ログイン", new_user_session_path, class:'text-dark' %>
-            </li>
-            <% end %>
-        </ul>
-    </div>
-  </header>
-    <div class="container mt-5">
+    <div class="wrapper">
+      <header>
+        <%= render 'layouts/header' %>
+      </header>
+      <div class="container mt-5">
         <%= yield %>
+      </div>
+      <%= render 'layouts/footer' %>
     </div>
 </body>
-
 </html>

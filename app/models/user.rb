@@ -12,5 +12,4 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :phone_number, presence: true
   validates :account_id, presence: true, uniqueness: true, length: { in: 8..12 }
-
 end

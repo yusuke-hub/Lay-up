@@ -1,30 +1,27 @@
 class UsersController < ApplicationController
+  before_action :get_group, only: [:index]
   def index
-    @users = User.all
-    @group = Group.new
-    @group.belongings.build
+    @user = User.new
     @search = User.search(params[:q])
       if params[:q]
         @results = @search.result(distinct: true)
       else
         @results = User.all
       end
-    # @belongings = Belonging.where(user_id: current_user.id)
-    # @groups = Group.where(id: @belongings)
   end
 
   def show
   	@user = User.find(params[:id])
-    current_user.belongings.each do |belonging|
-      @belonging = Belonging.where(group_id: belonging.group_id)
-      @belonging.each do |belonging2|
-        if belonging2.exists(user_id: @user)?
-          redirect_to user_path(@user)
-        else
-          render 'index'
-        end
-      end
-    end
+    # current_user.belongings.each do |belonging|
+    #   @belonging = Belonging.where(group_id: belonging.group_id)
+    #   @belonging.each do |belonging2|
+    #     if belonging2.exists(user_id: @user)?
+    #       redirect_to user_path(@user.id)
+    #     else
+    #       render 'index'
+    #     end
+    #   end
+    # end
   end
 
   def edit
@@ -44,6 +41,12 @@ class UsersController < ApplicationController
   private
     def user_params
     	params.require(:user).permit(:email,:name,:account_id,:profile_image,:phone_number)
+    end
+    def get_group
+      @belongings = current_user.belongings
+      @belongings.each do |belonging|
+        @group = Group.find_by(id: belonging.group_id)
+      end
     end
 end
 
