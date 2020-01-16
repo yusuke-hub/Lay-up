@@ -1,0 +1,160 @@
+<h2>gmap</h2>
+
+<!-- 地名入力用のinputを追加 -->
+<input id="address" type="textbox" value="Sydney, NSW">
+
+<!-- buttonをクリックしたらcodeAddressを実行　-->
+<input type="button" value="Encode" onclick="codeAddress()">
+<div id='map'>
+</div>
+
+<style>
+#map{
+  height: 400px;
+}
+</style>
+
+<script>
+/*
+mapを関数の外で定義(codeAddressでも使うため)
+geocoderを用意
+*/
+
+let map
+let geocoder
+
+function initMap(){
+  // geocoderを初期化
+  var bounds = new google.maps.LatLngBounds;
+  var markersArray = []
+  var departure = ""
+  var shelter = ""
+  var departureIcon = '' + ''
+  var shelterIcon = '' + ''
+  geocoder = new google.maps.Geocoder()
+
+  map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: 55.53, lng: 9.4},
+  zoom: 10
+  });
+}
+var service = new google.maps.DistanceMatrixService;
+service.getDIstanceMatrix({
+	departures:[departure],
+	shelter:[shelter],
+	travelMode:'WALKING',
+	unitSystem: google.maps.UnitSystem.METRIC,
+	avoidHighway: false;
+	avoidTolls: false
+	],function(response,status){
+		if(status !== 'OK'){
+			alert('Error was:' + status);
+		} else {
+			var departureList = response.departureAddresses;
+			var outputDiv = document.getElementById('output');
+			outputDiv.innerHTML = '';
+			deleteMarkers(markersArray);
+			var showGeocodeAddressOnMap = function(asShelter){
+				var icon = asShelter? shelterIcon: departureIcon;
+				return function(results,status){
+					if(status == 'OK'){
+						map.fitBounds(bounds.extend(results[0].geometry.location));
+						markers.Array.push(new google.maps.Marker({
+							map: map,
+							position: results[0].geometry.location,
+							icon: icon
+						}));
+					} else {
+						alert('Geocode was not successful due to:' + status);
+					}
+				};
+			};
+for(var i = 0; i < departureList.length; i++){
+	var results = response.rows[i].elements;
+	geocoder.geocode({'address': shelterList[i]},
+		showGeocodeAddressOnMap(true));
+	outputDiv.innerHTML += departureList[i] + 'to' + shelterList[i] + ':' + results[i].distance.text + 'in' + results[i].duration.text + '<br>';
+}
+}
+}
+});
+function deleteMarkers(markersArray) {
+  for (var i = 0; i < markersArray.length; i++) {
+    markersArray[i].setMap(null);
+  }
+  markersArray = [];
+}
+
+
+// function codeAddress(){
+//   // 入力を取得
+//   let inputAddress = document.getElementById('address').value;
+
+// 		// geocodingしたあとmapを移動
+//   geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+//     if (status == 'OK') {
+// 　　　　　　　　　　　　// map.setCenterで地図が移動
+//       map.setCenter(results[0].geometry.location);
+
+// 　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
+//       var marker = new google.maps.Marker({
+//           map: map,
+//           position: results[0].geometry.location
+//       });
+//     } else {
+//       alert('Geocode was not successful for the following reason: ' + status);
+//     }
+//   });
+// }
+// -------------------------------------------------------
+//     //<![CDATA[
+
+//     var map;
+//     var elev;
+
+//     // 初期化。bodyのonloadでinit()を指定することで呼び出してます
+//     function init() {
+
+//       // Google Mapで利用する初期設定用の変数
+//       var latlng = new google.maps.LatLng(39, 138);
+//       var opts = {
+//         zoom: 13,
+//         mapTypeId: google.maps.MapTypeId.ROADMAP,
+//         center: latlng
+//       };
+
+//       // getElementById("map")の"map"は、body内の<div id="map">より
+//       map = new google.maps.Map(document.getElementById("map"), opts);
+
+//       // 高度リクエストを送信するElevationServiceの作成
+//       elev = new google.maps.ElevationService();
+
+//       var latlng = new Array();
+//       latlng[0] = new google.maps.LatLng(35.36658, 138.72966);
+//       latlng[1] = new google.maps.LatLng(35.34385, 138.75205);
+
+//       // LocationElevationRequest
+//       var req = {
+//         locations: latlng,
+//       };
+//       elev.getElevationForLocations(req, elevResultCallback);
+//     }
+
+//     function elevResultCallback(result, status) {
+//       if (status != google.maps.ElevationStatus.OK) {
+//         alert(status);
+//         return;
+//       }
+
+//       map.setCenter(result[0].location);
+
+//       for (var i=0; i<result.length; i++) {
+//         new google.maps.Marker({position:result[i].location,
+//                         title:result[i].elevation.toString(),
+//                         map:map});
+//       }
+//     }
+
+//     //]]>
+    </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD9qQbA86daM6MFm2Pgkm7h3wVHZ9QooA&callback=initMap" async defer></script>

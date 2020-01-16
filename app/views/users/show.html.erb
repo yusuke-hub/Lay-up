@@ -6,7 +6,6 @@
 	<tr>
 		<td>ユーザー名</td><td><%= @user.name %></td>
 	</tr>
-	<% if @user.id == current_user.id  %>
 	  <tr>
 	  	<td>電話番号</td><td><%= @user.phone_number %></td>
 	  </tr>
@@ -16,7 +15,6 @@
 	  <tr>
 		  <td>アカウントID</td><td><%= @user.account_id %></td>
 	  </tr>
-	<% end %>
 </table>
 <div class="buttons mt-4">
       <%= link_to "編集", edit_user_path(@user.id), class:'btn btn-sm btn-success mb-2' %><br/>

@@ -17,7 +17,7 @@
         <th>ユーザー名</th>
         <th>マイグループ数</th>
         <th>計画数</th>
-        <!-- <th></th> -->
+        <th></th>
     </tr>
       <% @results.each do |user| %>
         <tr>
@@ -33,6 +33,15 @@
           <td>
             <%= link_to plans_path do %>
               <%= user.plans.count %>
+            <% end %>
+          </td>
+          <td>
+            <% if user.id == current_user.id %>
+            <% else %>
+              <%= form_for @group do |f| %>
+                <%= f.select :name, current_user.groups.map { |group| [group.name, group.id] } %>
+                <%= f.submit "グループに招待" %>
+              <% end %>
             <% end %>
           </td>
         </tr>

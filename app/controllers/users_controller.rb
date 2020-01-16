@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :get_group, only: [:index]
   def index
     @user = User.new
+    @group = Group.new
     @search = User.search(params[:q])
       if params[:q]
         @results = @search.result(distinct: true)
@@ -11,17 +11,18 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@user = User.find(params[:id])
-    # current_user.belongings.each do |belonging|
-    #   @belonging = Belonging.where(group_id: belonging.group_id)
-    #   @belonging.each do |belonging2|
-    #     if belonging2.exists(user_id: @user)?
-    #       redirect_to user_path(@user.id)
-    #     else
-    #       render 'index'
-    #     end
-    #   end
-    # end
+      @user = User.find(params[:id])
+      check_flg = false
+      current_user.belongings.each do |belonging|
+        @belongings = Belonging.where(group_id: belonging.group_id)
+          if @belongings.exists?(user_id: @user.id)
+            check_flg = true
+          end
+      end
+
+      if check_flg == false
+        redirect_to user_path(current_user)
+      end
   end
 
   def edit
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
     else
       render 'show'
     end
-    # @user.update(user_params)
+    # @user.update(user_params)2
   end
 
   def update
