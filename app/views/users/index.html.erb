@@ -31,7 +31,7 @@
               <%= groups.count %>
           </td>
           <td>
-            <%= link_to plans_path do %>
+            <%= link_to plan_path(user.id) do %>
               <%= user.plans.count %>
             <% end %>
           </td>

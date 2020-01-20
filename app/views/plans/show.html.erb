@@ -3,22 +3,22 @@
 		<th>日付</th>
 		<th>出発地</th>
 		<th>避難先</th>
-		<th>距離</th>
+		<th>距離(M)</th>
+		<th>時間(分)</th>
 		<th>メモ</th>
 		<th></th>
 	</tr>
+	<% @plans.each do |plan| %>
 	<tr>
-		<td><%= @plan.created_at.strftime('%Y/%m/%d')  %></td>
-		<td><%= @plan.d_name %></td>
-		<td><%= @plan.s_name %></td>
-		<td><%= @plan.distance %></td>
-		<td><%= @plan.memo %></td>
+		<td><%= plan.created_at.strftime('%Y/%m/%d')  %></td>
+		<td><%= plan.departure %></td>
+		<td><%= plan.shelter %></td>
+		<td><%= plan.distance %></td>
+		<td><%= plan.duration/60 %></td>
+		<td><%= plan.memo %></td>
 		<td>
-			<%= link_to "編集", edit_plan_path(@plan.id), class:'btn btn-sm btn-success' %>
+			<%= link_to "削除", plan_path(plan.id), method: :delete, class:'btn btn-sm btn-danger', method: :delete %>
 		</td>
-		<td>
-			<%= link_to "削除", plan_path, class:'btn btn-sm btn-danger', method: :delete %>
-		</td>
-		<td></td>
 	</tr>
+	<% end %>
 </table>

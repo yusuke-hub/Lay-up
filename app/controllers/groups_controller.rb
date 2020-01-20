@@ -20,8 +20,8 @@ class GroupsController < ApplicationController
 
   def show
     @group_users = Group.find(params[:id]).users
-    # @belongings = Belonging.where(user_id: current_user.id)
   end
+  
   def edit
     @group = Group.find(params[:id])
   end

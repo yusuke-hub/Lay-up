@@ -1,7 +1,7 @@
 class PlansController < ApplicationController
   protect_from_forgery
   def index
-    @plans = Plan.where(user_id: current_user.id)
+    @plans = Plan.where(user_id: params[:id])
   end
 
   def create
@@ -10,11 +10,12 @@ class PlansController < ApplicationController
   end 
 
   def show
-    @plan = Plan.find(params[:id])
+    @plans = Plan.where(user_id: params[:id])
+    # @plan = Plan.find(params[:id])
   end
 
   def destroy
-    @plan = Plan.find(params[:id])
+    @plan = Plan.find(params[:id])  
     @plan.destroy
     redirect_to plans_path
   end
