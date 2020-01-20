@@ -18,6 +18,10 @@ class GroupsController < ApplicationController
     end
   end
 
+  def show
+    @group_users = Group.find(params[:id]).users
+    # @belongings = Belonging.where(user_id: current_user.id)
+  end
   def edit
     @group = Group.find(params[:id])
   end
@@ -31,10 +35,6 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @group.destroy
     redirect_to groups_path
-  end
-
-  def show
-    @belongings = Belonging.where(user_id: current_user.id)
   end
 
   private
