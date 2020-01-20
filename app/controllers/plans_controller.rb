@@ -1,4 +1,5 @@
 class PlansController < ApplicationController
+  protect_from_forgery
   def index
     @plans = Plan.where(user_id: current_user.id)
   end

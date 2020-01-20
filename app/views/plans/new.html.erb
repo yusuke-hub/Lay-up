@@ -1,8 +1,8 @@
       <h4>避難計画登録</h4>
       <div id="map"></div>
       <form class="mb-5" onsubmit="return false;">
-        <input type="text" id="address" placeholder="  地点を入力してください" style="width:600px; height:35px;">
-        <button type="button" value="検索" id="map_button">検索</button>
+        <input type="text" id="address" placeholder="  地点を入力してください" style="width:600px; height:35px;"><br/>
+        <button type="button" value="検索" id="map_button" class="btn-md btn-secondary">検索</button>
       </form>
           <p>この場所は<br>
             標高 <input type="text" id="elev" value="">M<br>
@@ -43,4 +43,7 @@
             </li>
           </ul>
         </div>
+        <form id="memo-form">
+          <input id="memo_field" placeholder="     メモを入力してください" style="width:690px; height:45px;">
+        </form>
         <input type="submit" value="登録" class="registration btn btn-primary mt-3"/>

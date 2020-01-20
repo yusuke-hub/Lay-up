@@ -27,9 +27,8 @@
       <div class="container mt-5">
         <%= yield %>
       </div>
-      <%= render 'layouts/footer' %>
     </div>
-
+     <%= render 'layouts/footer' %>
     <script>
     var getMap = (function() {
       function codeAddress(address) {
@@ -160,6 +159,12 @@
         $("#destination").val(to_address);
       });
     });
+
+      let departure;
+      let shelter;
+      let distance;
+      let duration;
+
     // 距離と時間を計算する関数を定義。上記でフォームに渡した値を、変数に代入
     function calculateDistance() {
       var origin = $("#origin").val();
@@ -195,12 +200,6 @@
         }
       );
 
-      
-      let departure;
-      let shelter;
-      let distance;
-      let duration;
-
       function callback1(response, status) {
         if (status != google.maps.DistanceMatrixStatus.OK) {
           $("#result").html(err);
@@ -215,12 +214,6 @@
                 shelter
             );
           } else {
-            // var map = new google.maps.Map(document.getElementById("map"));
-
-            // var directionsRenderer = new google.maps.DirectionsRenderer();
-            // directionsRenderer.setMap(map);
-            // directionsRenderer.setDirections(response);
-
             // 変数の取得方法をdirection APIに合わせた形に修正
             distance = response.rows[0].elements[0].distance;
             duration = response.rows[0].elements[0].duration;
@@ -256,22 +249,27 @@
     });
 
     $(".registration").click(function(e) {
+      // var user = User.getCurrentUser();
+      var memo_field = $('#memo_field');
+      var memo = memo_field.val();
       console.log("登録ボタンが押されました");
       $.ajax({
         type: "POST",
-        url: "/plan",
+        url: "/plans",
         data: {
           plan: {
+            // user_id: user.id
             departure: departure,
             shelter: shelter,
             distance: distance.value,
-            duration: duration.value
+            duration: duration.value,
+            memo: memo
           }
         },
         datatype: "json"
       })
         .done(function(data) {
-          window.location = "/plans";
+          window.location = plans_path;
         })
         .fail(function() {
           alert("登録に失敗しました");
