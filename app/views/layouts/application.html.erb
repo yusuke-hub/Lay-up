@@ -27,8 +27,8 @@
       <div class="container mt-5">
         <%= yield %>
       </div>
+      <%= render 'layouts/footer' %>
     </div>
-     <%= render 'layouts/footer' %>
     <script>
     var getMap = (function() {
       function codeAddress(address) {
@@ -249,7 +249,7 @@
     });
 
     $(".registration").click(function(e) {
-      // var user = User.getCurrentUser();
+      // var user = User.getCur rentUser();
       var memo_field = $('#memo_field');
       var memo = memo_field.val();
       console.log("登録ボタンが押されました");
@@ -258,7 +258,7 @@
         url: "/plans",
         data: {
           plan: {
-            // user_id: user.id
+            user_id: <%= current_user.id %>,
             departure: departure,
             shelter: shelter,
             distance: distance.value,
@@ -269,7 +269,7 @@
         datatype: "json"
       })
         .done(function(data) {
-          window.location = plans_path;
+          window.location = '/plans';
         })
         .fail(function() {
           alert("登録に失敗しました");

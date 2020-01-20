@@ -13,7 +13,14 @@ class PlansController < ApplicationController
     @plan = Plan.find(params[:id])
   end
 
+  def destroy
+    @plan = Plan.find(params[:id])
+    @plan.destroy
+    redirect_to plans_path
+  end
   def edit
+    @plan = Plan.find(params[:id])
+    @plan.update(plan_params)
   end
   private
   def plan_params

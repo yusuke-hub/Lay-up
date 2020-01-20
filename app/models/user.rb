@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   # has_many :comments
-  # has_many :plans
+  has_many :plans
   has_many :belongings
   has_many :groups, :through => :belongings
   has_many :comments
