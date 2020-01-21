@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def index
     @user = User.new
-    @group = Group.new
     @search = User.search(params[:q])
       if params[:q]
         @results = @search.result(distinct: true)
@@ -42,6 +41,10 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def belonging
+    Belonging.create(user_id: params[:user_id], group_id: params[:group_id])
   end
 
   private

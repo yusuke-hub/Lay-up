@@ -27,7 +27,7 @@
       <div class="container mt-5">
         <%= yield %>
       </div>
-      <%= render 'layouts/footer' %>
+    <%= render 'layouts/footer' %>
     </div>
     <script>
     var getMap = (function() {
@@ -258,12 +258,14 @@
         url: "/plans",
         data: {
           plan: {
-            user_id: <%= current_user.id %>,
-            departure: departure,
-            shelter: shelter,
-            distance: distance.value,
-            duration: duration.value,
-            memo: memo
+            <% if user_signed_in? %>
+              user_id: <%= current_user.id %>,
+            <% end %>
+              departure: departure,
+              shelter: shelter,
+              distance: distance.value,
+              duration: duration.value,
+              memo: memo
           }
         },
         datatype: "json"
