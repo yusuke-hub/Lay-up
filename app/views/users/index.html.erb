@@ -41,8 +41,8 @@
           <td>
             <% if user.id == current_user.id %>
             <% else %>
-              <%= form_for @belonging do |f| %>
-                <%= f.select :name, current_user.groups.map { |group| [group.name, group.id] }, class:'group', id:'#{user.id}' %>
+              <%= form_for (@belonging, data: { remote: true }) do |f| %>
+                <%= f.select :group_id, current_user.groups.map { |group| [group.name, group.id] }, class:'group', id:'#{user.id}' %>
                 <%= f.submit "グループに招待", class:'submit' %>
               <% end %>
             <% end %>
@@ -52,31 +52,31 @@
 </table>
 
 <script>
-  // $(function() {
-  //   // groupクラスの変更を検知する
-  //   $('.group').change(function() {
-  //     group_id = $(this).has('option:selected').val()
-  //     $.ajax({
-  //       // 送信形式にget設定
-  //       type: "POST",
-  //       // getしたいurl
-  //       url: "/belonging",
-  //       // パラメーターにuser_idとgroup_idを追加して、コントローラーへ渡す
-  //       data: { 
-  //         user_id: $(this).attr('id'), 
-  //         group_id: group_id, 
-  //         activation: true
-  //          },
-  //       datatype: "json"
-  //       })
-  //      .done(function(data) {
-  //        window.location =  '/group/[:current_user.id]';
-  //       // グループへ招待したら、画面上からグループを消す。
-  //       //  $(this).children('option:selected').remove();
-  //        })
-  //      .fail(function() {
-  //        alert('招待に失敗しました')
-  //        });
-  //   });
-  // });
+  $(function() {
+    // groupクラスの変更を検知する
+    $('.group').change(function() {
+      group_id = $(this).has('option:selected').val()
+      $.ajax({
+        // 送信形式にget設定
+        type: "POST",
+        // getしたいurl
+        url: "/belonging",
+        // パラメーターにuser_idとgroup_idを追加して、コントローラーへ渡す
+        data: { 
+          user_id: $(this).attr('id'), 
+          group_id: group_id, 
+          activation: true
+           },
+        datatype: "json"
+        })
+       .done(function(data) {
+         window.location =  '/group/[:current_user.id]';
+        // グループへ招待したら、画面上からグループを消す。
+        //  $(this).children('option:selected').remove();
+         })
+       .fail(function() {
+         alert('招待に失敗しました')
+         });
+    });
+  });
 </script>
