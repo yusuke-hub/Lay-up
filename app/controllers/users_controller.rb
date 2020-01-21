@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @user = User.new
+    @belonging = Belonging.new
     @search = User.search(params[:q])
       if params[:q]
         @results = @search.result(distinct: true)

@@ -41,7 +41,7 @@
           <td>
             <% if user.id == current_user.id %>
             <% else %>
-              <%= form_for @user do |f| %>
+              <%= form_for @belonging do |f| %>
                 <%= f.select :name, current_user.groups.map { |group| [group.name, group.id] }, class:'group', id:'#{user.id}' %>
                 <%= f.submit "グループに招待", class:'submit' %>
               <% end %>
@@ -60,7 +60,7 @@
   //       // 送信形式にget設定
   //       type: "POST",
   //       // getしたいurl
-  //       url: "/users/belongings",
+  //       url: "/belonging",
   //       // パラメーターにuser_idとgroup_idを追加して、コントローラーへ渡す
   //       data: { 
   //         user_id: $(this).attr('id'), 
