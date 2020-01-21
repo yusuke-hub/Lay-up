@@ -23,7 +23,10 @@
         <tr>
           <td>
             <%= link_to user_path(user.id) do %>
-              <%= user.name %>
+              <% if user.id == current_user.id %>
+                <i class="fas fa-user-check"></i>
+              <% end %>
+                <%= user.name %>
             <% end %>
           </td>
           <td>

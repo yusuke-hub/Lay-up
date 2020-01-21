@@ -19,7 +19,7 @@
                 <%= link_to "    マイグループ", groups_path, class:'mr-5 text-dark' %>
             </li>
             <li class="">
-                <%= link_to "   避難先一覧",  plans_path, class:'mr-5 text-dark' %>
+                <%= link_to "   避難先一覧",  plan_path(current_user.id), class:'mr-5 text-dark' %>
             </li>
             <li class="">
                 <%= link_to "   ログアウト", destroy_user_session_path, class:"text-dark", method: :delete %>

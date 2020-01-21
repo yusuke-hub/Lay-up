@@ -117,7 +117,6 @@
         getAddress: function() {
           // ボタンに指定したid要素を取得
           var button = document.getElementById("map_button");
-          
           // ボタンが押された時の処理
           button.onclick = function() {
             // フォームに入力された住所情報を取得
@@ -135,8 +134,8 @@
           }
         }
       };
-    })();
-    getMap.getAddress();
+    });
+    getMap.getAddress;
 
     $(function() {
       // 入力フォームを取得して、同名の変数に自動補完機能を付与
