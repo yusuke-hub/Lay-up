@@ -52,31 +52,31 @@
 </table>
 
 <script>
-  $(function() {
-    // groupクラスの変更を検知する
-    $('.group').change(function() {
-      group_id = $(this).has('option:selected').val()
-      $.ajax({
-        // 送信形式にget設定
-        type: "POST",
-        // getしたいurl
-        url: "/users/belongings",
-        // パラメーターにuser_idとgroup_idを追加して、コントローラーへ渡す
-        data: { 
-          user_id: $(this).attr('id'), 
-          group_id: group_id, 
-          activation: true
-           },
-        datatype: "json"
-        })
-       .done(function(data) {
-         window.location =  '/group/[:current_user.id]';
-        // グループへ招待したら、画面上からグループを消す。
-        //  $(this).children('option:selected').remove();
-         })
-       .fail(function() {
-         alert('招待に失敗しました')
-         });
-    });
-  });
+  // $(function() {
+  //   // groupクラスの変更を検知する
+  //   $('.group').change(function() {
+  //     group_id = $(this).has('option:selected').val()
+  //     $.ajax({
+  //       // 送信形式にget設定
+  //       type: "POST",
+  //       // getしたいurl
+  //       url: "/users/belongings",
+  //       // パラメーターにuser_idとgroup_idを追加して、コントローラーへ渡す
+  //       data: { 
+  //         user_id: $(this).attr('id'), 
+  //         group_id: group_id, 
+  //         activation: true
+  //          },
+  //       datatype: "json"
+  //       })
+  //      .done(function(data) {
+  //        window.location =  '/group/[:current_user.id]';
+  //       // グループへ招待したら、画面上からグループを消す。
+  //       //  $(this).children('option:selected').remove();
+  //        })
+  //      .fail(function() {
+  //        alert('招待に失敗しました')
+  //        });
+  //   });
+  // });
 </script>
