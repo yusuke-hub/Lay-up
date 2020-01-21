@@ -7,7 +7,6 @@
           <p>この場所は<br>
             標高 <input type="text" id="elev" value="">M<br>
             場所を入力すると標高情報が取得できます。</p>
-
         <form id="distance_form">
           <div class="form-group">
             <label>出発地:
@@ -23,6 +22,9 @@
           <input type="submit" value="計算" class="btn btn-success mb-4"/>
         </form>
 
+        <form id="memo-form">
+          <input id="memo_field" placeholder=" メモを入力してください" style="width:690px; height:45px;">
+        </form>
         <div id="result">
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -43,7 +45,4 @@
             </li>
           </ul>
         </div>
-        <form id="memo-form">
-          <input id="memo_field" placeholder=" メモを入力してください" style="width:690px; height:45px;">
-        </form>
         <input type="submit" value="登録" class="registration btn btn-primary mt-3"/>

@@ -26,10 +26,8 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if @user.id == current_user.id
-      redirect_to edit_user_path(@user.id)
-    else
-      render 'show'
+    if @user.id != current_user.id
+      redirect_to user_path(@user.id)
     end
     # @user.update(user_params)2
   end
@@ -43,7 +41,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def belonging
+  def belonging_create
     Belonging.create(user_id: params[:user_id], group_id: params[:group_id])
   end
 
