@@ -1,0 +1,23 @@
+<table class="table table-bordered">
+	<tr>
+		<th>日付</th>
+		<th>出発地</th>
+		<th>避難先</th>
+		<th>距離(M)</th>
+		<th>時間(分)</th>
+		<th>メモ</th>
+		<th></th>
+	</tr>
+  <tr>
+		<td>
+				<%= @plan.created_at.strftime('%Y/%m/%d')  %>
+		</td>
+		<td><%= @plan.departure %></td>
+		<td><%= @plan.shelter %></td>
+		<td><%= @plan.distance %></td>
+		<td><%= @plan.duration/60 %></td>
+		<td><%= @plan.memo %></td>
+		<td>
+			<%= link_to "削除", plan_path(@plan.id), method: :delete, class:'btn btn-sm btn-danger', method: :delete %>
+		</td>
+	</tr>  
