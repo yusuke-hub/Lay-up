@@ -1,7 +1,7 @@
       <h4>避難計画登録</h4>
       <div id="map"></div>
       <form class="mb-5" onsubmit="return false;">
-        <input type="text" id="address" placeholder="  地点を入力してください" style="width:600px; height:35px;"><br/>
+        <input type="text" id="address" placeholder="  地点を入力" style="width:600px; height:35px;"><br/>
         <button type="button" value="検索" id="map_button" class="btn-md btn-secondary">検索</button>
       </form>
           <p>この場所は<br>
@@ -11,36 +11,36 @@
           <div class="form-group">
             <label>出発地:
             </label>
-            <input id="from_places" class="form-control" placeholder="地点を入力してください"/>
+            <input id="from_places" class="form-control" placeholder="地点を入力"/>
             <input id="origin" type="hidden" name="origin" required="required"/>
           <div class="form-group">
             <label>避難先:
             </label>
-            <input id="to_places" class="form-control" placeholder="地点を入力してください"/>
+            <input id="to_places" class="form-control" placeholder="地点を入力"/>
             <input id="destination" type="hidden" name="destination" required="required"/>
           </div>
           <input type="submit" value="計算" class="btn btn-success mb-4"/>
         </form>
 
-        <form id="memo-form" onsubmit="return false;">
-          <input id="memo_field" placeholder=" メモを入力してください" style="width:690px; height:45px;">
+        <form id="plan-form" onsubmit="return false;">
+          <input id="memo_field" placeholder=" メモを入力" style="width:690px; height:45px;">
         <div id="result">
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
               距離(m):
-              <span id="in_meter" class="badge badge-primary badge-pill"></span>
+              <span id="in_meter" class="badge badge-secondary badge-pill"></span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               時間(分):
-              <span id="duration_text" class="badge badge-primary badge-pill"></span>
+              <span id="duration_text" class="badge badge-secondary badge-pill"></span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               出発地住所:
-              <span id="from" class="badge badge-primary badge-pill"></span>
+              <span id="from" class="badge badge-secondary badge-pill"></span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               避難先住所:
-              <span id="to" class="badge badge-primary badge-pill"></span>
+              <span id="to" class="badge badge-secondary badge-pill"></span>
             </li>
           </ul>
         </div>

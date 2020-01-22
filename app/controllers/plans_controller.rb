@@ -17,7 +17,7 @@ class PlansController < ApplicationController
   def destroy
     @plan = Plan.find(params[:id])  
     @plan.destroy
-    redirect_to plans_path
+    redirect_to plan_path(current_user.id)
   end
   def edit
     @plan = Plan.find(params[:id])
