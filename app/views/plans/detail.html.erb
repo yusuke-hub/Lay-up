@@ -1,3 +1,4 @@
+<h4>避難計画詳細</h4>
 <table class="table table-bordered">
 	<tr>
 		<th>日付</th>
@@ -29,7 +30,7 @@
   <% end %>
 
   <ol>
-    <% @plan.comments.each do |comment| %>
+    <%= @plan.comments.each do |comment| %>
       <li class="comment">
         <div class="avatar">
           <%= attachment_image_tag @user.profile_image, :profile_image, :fill, 60, 60, format:'png' %>
