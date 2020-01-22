@@ -11,6 +11,17 @@ class PlansController < ApplicationController
 
   def show
     @plans = Plan.where(user_id: params[:id])
+    @user = User.find(params[:id])
+    check_flg = false
+    current_user.belongings.each do |belonging|
+      @belongings = Belonging.where(group_id: belonging.group_id)
+        if @belongings.exists?(user_id: @user.id)
+          check_flg = true
+        end
+    end
+    if check_flg == false
+      redirect_to plan_path(current_user.id)
+    end
     # @plan = Plan.find(params[:id])
   end
 
