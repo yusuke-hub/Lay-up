@@ -16,6 +16,7 @@ class PlansController < ApplicationController
 
   def detail
     @plan = Plan.find(params[:id])
+    @comment = Comment.new
   end
 
   def destroy
