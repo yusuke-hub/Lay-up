@@ -16,6 +16,7 @@ class PlansController < ApplicationController
 
   def detail
     @plan = Plan.find(params[:id])
+    @user = User.find(@plan.user_id)
     @comment = Comment.new
   end
 

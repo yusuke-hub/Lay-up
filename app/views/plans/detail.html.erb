@@ -27,3 +27,11 @@
     <%= f.text_area :content, style:'width: 100%; height: 100px;'%>
     <%= f.submit "コメントする", class:'btn btn-sm btn-primary' %>
   <% end %>
+
+  <ol>
+    <% @plan.comments.each do |comment| %>
+      <li class="comment">
+        <div class="avatar">
+          <%= attachment_image_tag @user.profile_image, :profile_image, :fill, 60, 60, format:'png' %>
+        </div>
+    <% end %>        

@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
     @comment.save
   end    
   def show
+    
   end
   private 
     def comment_params
