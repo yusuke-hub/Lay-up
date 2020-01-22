@@ -10,7 +10,12 @@
 	</tr>
 	<% @plans.each do |plan| %>
 	<tr>
-		<td><%= plan.created_at.strftime('%Y/%m/%d')  %></td>
+		<td>
+			<% plan_id = plan.id %>
+			<%= link_to plan_detail_path(plan.id) do %>
+				<%= plan.created_at.strftime('%Y/%m/%d')  %>
+			<% end %>
+		</td>
 		<td><%= plan.departure %></td>
 		<td><%= plan.shelter %></td>
 		<td><%= plan.distance %></td>

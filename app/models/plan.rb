@@ -1,5 +1,5 @@
 class Plan < ApplicationRecord
-	has_many :comments
+	has_many :comments, dependent: :destroy
 	belongs_to :user
 	# belongs_to :situation
 	validates :departure, presence: true
