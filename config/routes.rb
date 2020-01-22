@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/plans/detail/:id', to: 'plans#detail', as: 'plan_detail'
   resources :users, only: [:index,:show,:edit,:update]
   resources :plans, only: [:index,:new, :create,:show,:edit,:update,:destroy] do
-    resource :comments, only:[:create, :destroy]
+    resource :comments, only:[:show, :create, :destroy]
   end
   resources :groups, only: [:new,:index,:create,:show,:edit,:update,:destroy]
   resources :belonging, only: [:create]
