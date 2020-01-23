@@ -2,7 +2,7 @@
         <%= link_to root_path do %>
           <%= image_tag "Noah-logo.png", class:'logo shelter' %>
         <% end %>
-        <% if @invited_group.present? %>
+        <% if @invited_group.present? && controller.action_name != "confirm" %>
             <p class="news"><%= link_to @invited_group.count, group_confirm_path %> つのグループに招待されています！</p>
         <% end %>
         <% if user_signed_in? %>

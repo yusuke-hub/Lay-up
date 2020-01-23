@@ -8,8 +8,8 @@ class BelongingsController < ApplicationController
     # end
   end
   def update
-    @belonging = Belonging.find(paras[:id])
-    @belonging.activation = 'true'
+    @belonging = Belonging.find(params[:id])
+    @belonging.update(activation: true)
     redirect_to groups_path
   end
   private

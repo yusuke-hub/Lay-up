@@ -1,16 +1,18 @@
 <table class="table table-bordered">
-  <tr>
-    <th>グループ名</th>
-    <th>紹介</th>
-    <th></th>
-  </tr>
     <tr>
-      <td><%= @invited_group.name %></td>
-      <td><%= @invited_group.caption %></td>
-      <td>
-        <%= form_for (@belonging, ) do |f| %>
-          <%= f.hidden_field :activation, :value => 'false'%>
-        <% end %>
-      </td>
+      <th>グループ名</th>
+      <th>紹介</th>
+      <th></th>
     </tr>
+  <% @invited_belonging.each do |belonging| %>
+      <tr>
+        <td><%= belonging.group.name %></td>
+        <td><%= belonging.group.caption %></td>
+        <td>
+          <%= form_for belonging do |f| %>
+            <%= f.submit "参加" %>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
 </table>

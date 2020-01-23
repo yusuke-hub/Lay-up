@@ -40,12 +40,7 @@ class GroupsController < ApplicationController
   end
 
   def confirm
-    @belongings = current_user.belongings
-    @invited_belonging = @belongings.where(activation: false)
-    @invited_belonging.each do |belonging|
-      @belonging= belonging
-      @invited_group = Group.find_by(id: belonging.group_id)
-    end
+    @invited_belonging = current_user.belongings.where(activation: false)
   end
 
   private
