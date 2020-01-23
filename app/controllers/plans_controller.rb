@@ -22,7 +22,6 @@ class PlansController < ApplicationController
     if check_flg == false
       redirect_to plan_path(current_user.id)
     end
-    # @plan = Plan.find(params[:id])
   end
 
   def detail

@@ -41,7 +41,6 @@
             <% else %>
               <%= form_for @belonging, url:'#'  do |f| %>
                 <%= f.select :group_id, current_user.groups.map { |group| [group.name, group.id] }, {}, { class:'group', id: user.id } %>
-                <%= f.button "グループに招待", class:'submit' %>
               <% end %>
             <% end %>
           </td>

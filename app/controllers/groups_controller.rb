@@ -40,6 +40,9 @@ class GroupsController < ApplicationController
     redirect_to groups_path
   end
 
+  def confirm
+  end
+
   private
     def group_params
     	params.require(:group).permit(:name,:caption)

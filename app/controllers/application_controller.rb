@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource)
     new_user_session_path
   end
+  def check_invitation
+    @belongings = current_user.belongings
+    @invited_group = @belongings.where(activation: false)
+  end    
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :account_id,:phone_number])

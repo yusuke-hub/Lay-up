@@ -1,6 +1,9 @@
     <div class="navbar-brand ">
         <%= link_to root_path do %>
-          <%= image_tag "Noah-logo.png", class:'shelter' %>
+          <%= image_tag "Noah-logo.png", class:'logo shelter' %>
+        <% end %>
+        <% if @invited_group.present? %>
+            <p class="news"><%= link_to @invited_group.count, group_confirm_path %> つのグループに招待されています！</p>
         <% end %>
         <% if user_signed_in? %>
           <p><i id="user-icon" class="welcome fa fa-user"></i></p>
