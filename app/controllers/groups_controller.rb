@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
 
   def index
     @belongings = current_user.belongings
+    @invited_group = @belongings.where(activation: false)
   end
 
   def create
