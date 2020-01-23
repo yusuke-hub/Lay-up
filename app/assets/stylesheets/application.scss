@@ -62,33 +62,45 @@ h4 {
   width: 360px;
 }
 
-.welcome {
-  font-size: 17px;
-  text-align: right !important;
-  position: absolute;
-  right: 285px;
-  top: 172px;
-}
 .welcome a:hover {
   text-decoration: none;
-}
-#user-icon {
-  right: 363px;
-}
-
-.make-plan {
-  font-size: 17px;
-  position: absolute;
-  right: 78px;
-  top: 172px;
-}
-#guard-icon {
-  font-size: 23px;
-  right: 233px;
 }
 .make-plan a:hover {
   text-decoration: none;
 }
+.make-group a:hover {
+  text-decoration: none;
+}
+.welcome, .make-plan, .make-group {
+  font-size: 17px;
+  position: absolute;
+  top: 172px;  
+}
+// ログインユーザー名
+#user-icon {
+  right: 504px;
+}
+.welcome {
+  text-align: right !important;
+  right: 428px;
+}
+// グループを作成
+#group-icon {
+  font-size: 26px;
+  right: 375px
+}
+.make-group {
+  right: 250px;
+}
+// 避難計画を登録
+#guard-icon {
+  font-size: 23px;
+  right: 200px;
+}
+.make-plan {
+  right: 76px;
+}
+
 
 .table {
   margin-top: 20px;
