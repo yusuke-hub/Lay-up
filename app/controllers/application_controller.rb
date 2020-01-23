@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!, except: [:create]
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :check_invitation
   def after_sign_in_path_for(resource)
   	root_path
   end
@@ -8,8 +9,10 @@ class ApplicationController < ActionController::Base
     new_user_session_path
   end
   def check_invitation
-    @belongings = current_user.belongings
-    @invited_group = @belongings.where(activation: false)
+    if user_signed_in?
+      @belongings = current_user.belongings
+      @invited_group = @belongings.where(activation: false)
+    end
   end    
   protected
   def configure_permitted_parameters

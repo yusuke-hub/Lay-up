@@ -7,6 +7,11 @@ class BelongingsController < ApplicationController
     #     format.json{render json: @belonging}
     # end
   end
+  def update
+    @belonging = Belonging.find(paras[:id])
+    @belonging.activation = 'true'
+    redirect_to groups_path
+  end
   private
   def belonging_params
     params.require(:belonging).permit(:user_id, :group_id, :activation)

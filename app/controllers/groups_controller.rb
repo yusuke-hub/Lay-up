@@ -1,12 +1,11 @@
 class GroupsController < ApplicationController
   def new
     @group = Group.new
-    @group.belongings.build(activation: true)
+    @group.belongings.build
   end
 
   def index
     @belongings = current_user.belongings
-    @invited_group = @belongings.where(activation: false)
   end
 
   def create
@@ -41,6 +40,12 @@ class GroupsController < ApplicationController
   end
 
   def confirm
+    @belongings = current_user.belongings
+    @invited_belonging = @belongings.where(activation: false)
+    @invited_belonging.each do |belonging|
+      @belonging= belonging
+      @invited_group = Group.find_by(id: belonging.group_id)
+    end
   end
 
   private
