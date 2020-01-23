@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   def new
     @group = Group.new
-    @group.belongings.build
+    @group.belongings.build(activation: true)
   end
 
   def index

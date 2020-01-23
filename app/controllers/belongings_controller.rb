@@ -7,8 +7,8 @@ class BelongingsController < ApplicationController
     #     format.json{render json: @belonging}
     # end
   end
-  # private
-  # def belonging_params
-  #   params.require(:belonging).permit(:user_id, :group_id)
-  # end
+  private
+  def belonging_params
+    params.require(:belonging).permit(:user_id, :group_id, :activation)
+  end
 end

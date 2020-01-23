@@ -30,7 +30,7 @@
             <% end %>
           </td>
           <td>
-            <% groups = Belonging.where(user_id: user.id) %>
+            <% groups = Belonging.where(activation: true) %>
               <%= groups.count %>
           </td>
           <td>
