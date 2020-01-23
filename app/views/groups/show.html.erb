@@ -4,13 +4,24 @@
  		<th>ユーザ名</th>
  		<th>電話番号</th>
  		<th>メールアドレス</th>
+	  <th>アカウントID</th>
  		<th>避難計画数</th>
  	</tr>
 	 		 <% @group_users.each do |user| %>
 			 	<tr>
-					<td><%= user.name %></td>
-					<td><%= user.phone_number %></td>
-					<td><%= user.email %></td>
+					<td>
+						<%= attachment_image_tag @user, :profile_image, format:'png', class:'profile-img rounded-circle pull-left my-4', fallback:'no-image.png' %>
+						<%= user.name %>
+					</td>
+					<td>
+						<%= user.phone_number %>
+					</td>
+					<td>
+						<%= user.email %>
+					</td>
+					<td>
+						<%=  user.account_id %>
+					</td>
 					<td>
 						<%= link_to plan_path(user.id) do %>
 							<%= user.plans.count %>

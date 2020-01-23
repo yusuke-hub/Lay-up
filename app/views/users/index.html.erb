@@ -41,36 +41,35 @@
           <td>
             <% if user.id == current_user.id %>
             <% else %>
-              <%= form_for (@belonging, onsubmit="return: false") do |f| %>
-                <%= f.select :group_id, current_user.groups.map { |group| [group.name, group.id] }, class:'group', id:'#{user.id}' %>
-                <%= f.submit "グループに招待", class:'submit' %>
+              <%= form_for @belonging, url:'#'  do |f| %>
+                <%= f.select :group_id, current_user.groups.map { |group| [group.name, group.id] }, {}, { class:'group', id: user.id } %>
+                <%= f.button "グループに招待", class:'submit' %>
               <% end %>
             <% end %>
           </td>
         </tr>
-  <% end %>
+      <% end %>
 </table>
 
 <script>
   $(document).ready(function() {
     // groupクラスの変更を検知する
-    $('.submit').onclick(function() {
+    $('.group').change(function() {
       group_id = $(this).has('option:selected').val()
       $.ajax({
         // 送信形式にget設定
         type: "POST",
         // getしたいurl
-        url: "/belonging",
+        url: "/belongings",
         // パラメーターにuser_idとgroup_idを追加して、コントローラーへ渡す
         data: { 
           user_id: $(this).attr('id'), 
-          group_id: group_id, 
-          activation: true
+          group_id: group_id,
            },
         datatype: "json"
         })
        .done(function(data) {
-         window.location =  '/group/[:current_user.id]';
+         window.location =  '/groups';  
         // グループへ招待したら、画面上からグループを消す。
         //  $(this).children('option:selected').remove();
          })

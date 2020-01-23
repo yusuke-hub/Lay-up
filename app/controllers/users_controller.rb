@@ -41,6 +41,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      redirect_to home_about_path
+    end
+  end
+
   def belonging_create
     Belonging.create(user_id: params[:user_id], group_id: params[:group_id])
   end

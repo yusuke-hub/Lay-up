@@ -1,7 +1,21 @@
 class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
-    @comment.save
+    if @comment.save
+      respond_to do |format|
+        format.html { redirect_to : root}
+        format.json { render json: @comment}
+      end
+    else
+      render :detail, alert: 'コメントを入力してください' 
+    end
+
+    rescue => exception
+      
+    else
+      
+    end
+
   end    
   def show
     

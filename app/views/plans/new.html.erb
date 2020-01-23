@@ -288,7 +288,7 @@
         datatype: "json"
       })
         .done(function(data) {
-          window.location = "<%= plans_path %>";
+          window.location = "<%= plan_path(current_user.id) %>";
         })
         .fail(function() {
           alert("登録に失敗しました");

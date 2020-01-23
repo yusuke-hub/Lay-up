@@ -29,6 +29,7 @@ class PlansController < ApplicationController
     @plan = Plan.find(params[:id])
     @user = User.find(@plan.user_id)
     @comment = Comment.new
+    @comments = Comment.order('created_at ASC')
   end
 
   def destroy

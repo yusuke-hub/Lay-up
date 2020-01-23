@@ -24,11 +24,19 @@
 	</tr>  
 </table>
 
-  <%= form_for(@comment, url: plan_comments_path(@plan.id), html: {method: 'POST'}) do |f| %>
-    <%= f.text_area :content, style:'width: 100%; height: 100px;'%>
-    <%= f.submit "コメントする", class:'btn btn-sm btn-primary' %>
+  <%# <%= form_for(@comment, url: plan_comments_path(@plan.id), html: {method: 'POST'}) do |f| %>
+    <%# <%= f.text_area :content, style:'width: 100%; height: 100px;'%> %>
+    <%# <%= f.submit "コメントする", class:'btn btn-sm btn-primary' %>
+  <%# <% end %> %> %> %>
+<div class="comments">	
+  <%= form_for @comment, html: { class: 'form js-form' } do |f| %>
+    <%= f.text_area :content,  class: 'form_text_area js-form_text-area', style:'width: 100%; height: 100px;' %>
+    <%= f.submit "コメントする", class:'form_submit js-submit btn btn-sm btn-primary' %>
   <% end %>
-
+	<ul class="comments">
+		<%= render @comments %>
+	</ul>
+</div>
   <ol>
     <%= @plan.comments.each do |comment| %>
       <li class="comment">
@@ -36,3 +44,34 @@
           <%= attachment_image_tag @user.profile_image, :profile_image, :fill, 60, 60, format:'png' %>
         </div>
     <% end %>        
+<script>
+	$(document).ready(function() {
+		function buildHTML(comment) {
+			var html = $('<li class="comment">').append(comment.content);
+			return html;
+		}
+		$('.js-form').on('submit', function(e){
+			e.preventDefault();
+			var textArea = $$('.js-form_text-area');
+			var comment = textArea.val();
+			$.ajax({
+				type: 'POST',
+				url: '/plans/:plan_id/comments',
+				data: {
+					comment: {
+						content: comment
+					}
+				},
+				dataType: 'json'
+			})
+			.done(function(data){
+				var html = buildHTML(data);
+				&('.comments').append(html);
+				textArea.val('');
+			})
+			.fail(function() {
+				alert('コメントに失敗しました')
+			});
+		});
+	});
+</script>	
