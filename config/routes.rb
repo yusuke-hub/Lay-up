@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     resource :comments, only:[:show, :create, :destroy]
   end
   resources :groups, only: [:new,:index,:create,:show,:edit,:update,:destroy]
-  resources :belongings, only: [:create, :update]
+  resources :belongings, only: [:create, :destroy, :update]
 end

@@ -1,5 +1,5 @@
         <h4>マイグループ</h4>
-            <% if @belongings.where(activation: true).exists? %>
+            <% if @belongings.exists? %>
                 <table class="table table-bordered">
                     <tr>
                         <th>作成日</th>
@@ -22,11 +22,11 @@
                             <%= belonging.group.caption %>
                         </td>
                         <td>
-                            <%= Belonging.where(activation: true).count %>
+                            <%= Belonging.where(group_id: belonging.group_id, activation: true).count %>
                         </td>
                         <td>
                             <%= link_to "編集", edit_group_path(belonging.group), class:'btn btn-sm btn-success mr-3' %>
-                            <%= link_to "削除", group_path(belonging.group), class:'btn btn-sm btn-danger', method: :delete %>
+                            <%= link_to "退出", belonging_path(belonging.id), class:'btn btn-sm btn-danger', method: :delete %>
                         </td>
                         <% end %>
                     </tr>

@@ -5,12 +5,11 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @belongings = current_user.belongings
+    @belongings = current_user.belongings.where(activation: true)
   end
 
   def create
   	@group = Group.new(group_params)
-    @group.belongings.build user: current_user
     if @group.save
       redirect_to  groups_path
     else

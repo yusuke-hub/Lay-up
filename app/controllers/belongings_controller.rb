@@ -12,6 +12,11 @@ class BelongingsController < ApplicationController
     @belonging.update(activation: true)
     redirect_to groups_path
   end
+  def destroy
+    @belonging = Belonging.find(params[:id])
+    @belonging.destroy
+      redirect_to group_confirm_path
+  end
   private
   def belonging_params
     params.require(:belonging).permit(:user_id, :group_id, :activation)
