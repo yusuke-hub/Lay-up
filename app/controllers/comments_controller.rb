@@ -1,24 +1,17 @@
 class CommentsController < ApplicationController
+  protect_from_forgery
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
       respond_to do |format|
-        format.html { redirect_to : root}
+        format.html 
         format.json { render json: @comment}
       end
     else
       render :detail, alert: 'コメントを入力してください' 
     end
-
-    rescue => exception
-      
-    else
-      
-    end
-
   end    
   def show
-    
   end
   private 
     def comment_params

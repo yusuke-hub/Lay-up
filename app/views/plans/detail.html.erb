@@ -40,7 +40,7 @@
 <script>
 	$(document).ready(function() {
 		function buildHTML(comment) {
-			var html = $('<li class="comment">').append(comment.content);
+			var html = $('<li class="comment-list">').append(comment.content);
 			return html;
 		}
 		$('.js-form').on('submit', function(e){
@@ -49,18 +49,19 @@
 			var comment = textArea.val();
 			$.ajax({
 				type: 'POST',
-				url: '/plans/:plan_id/comments',
+				url: "<%= plan_comments_path(@plan.id) %>",
 				data: {
 					comment: {
 						content: comment
-						user_id: $(this).(.comment).attr('id')
-						plan_id: @plan.id
+						// user_id: $(this).(.comment).attr('id')
+						// plan_id: @plan.id
+					}
 				},
 				dataType: 'json'
 			})
 			.done(function(data){
 				var html = buildHTML(data);
-				&('.comments').append(html);
+				$('.comment').append(html);
 				textArea.val('');
 			})
 			.fail(function() {
