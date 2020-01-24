@@ -28,7 +28,7 @@
             <% end %>
           </td>
           <td>
-            <% groups = Belonging.where(activation: true) %>
+            <% groups = user.belongings.where(activation: true) %>
               <%= groups.count %>
           </td>
           <td>
