@@ -23,7 +23,6 @@
         </form>
 
         <form id="plan-form" onsubmit="return false;">
-          <input id="memo_field" placeholder=" メモを入力" style="width:690px; height:45px;">
         <div id="result">
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -266,9 +265,6 @@
     });
 
     $(".registration").click(function(e) {
-      // var user = User.getCur rentUser();
-      var memo_field = $('#memo_field');
-      var memo = memo_field.val();
       console.log("登録ボタンが押されました");
       $.ajax({
         type: "POST",
@@ -282,7 +278,6 @@
               shelter: shelter,
               distance: distance.value,
               duration: duration.value,
-              memo: memo
           }
         },
         datatype: "json"

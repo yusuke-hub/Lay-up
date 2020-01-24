@@ -6,7 +6,6 @@
 		<th>避難先</th>
 		<th>距離(M)</th>
 		<th>時間(分)</th>
-		<th>メモ</th>
 		<th></th>
 	</tr>
 	<% @plans.each do |plan| %>
@@ -20,7 +19,6 @@
 		<td><%= plan.shelter %></td>
 		<td><%= plan.distance %></td>
 		<td><%= plan.duration/60 %></td>
-		<td><%= plan.memo %></td>
 		<td>
 			<%= link_to "削除", plan_path(plan.id), method: :delete, class:'btn btn-sm btn-danger', method: :delete %>
 		</td>
