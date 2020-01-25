@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   def new
     @group = Group.new
-    @group.belongings.build
+    @belonging = @group.belongings.build
   end
 
   def index
@@ -44,6 +44,7 @@ class GroupsController < ApplicationController
 
   private
     def group_params
-    	params.require(:group).permit(:name, :caption, belongings_attributes:[:user_id, :activation])
+    	params.require(:group).permit(:name, :caption, belongings_attributes:[:id, :group_id, :user_id, :activation])
     end
 end
+

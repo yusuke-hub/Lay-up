@@ -40,7 +40,7 @@
             <% if user.id == current_user.id %>
             <% else %>
               <%= form_for @belonging, url:'#'  do |f| %>
-                <%= f.select :group_id, current_user.groups.map { |group| [group.name, group.id] }, {}, { class:'group', id: user.id } %>
+                <%= f.select :group_id, current_user.groups.map { |group| [group.name, group.id] }, { prompt: 'グループを選択して招待' }, { class:'group', id: user.id } %>
               <% end %>
             <% end %>
           </td>
