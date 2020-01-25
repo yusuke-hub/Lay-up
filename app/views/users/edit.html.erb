@@ -1,25 +1,26 @@
-<h4 class="mb-5">ユーザー情報編集</h4>
-<div class="ef">
-    <%= form_for(@user) do |f| %>
-      <div class="field mb-2">
-          <%= f.attachment_field :profile_image %>
-      </div>
-      <div class="field">
-          <%= f.label :名前 %><br />
-          <%= f.text_field :name %>
-      </div>
-      <div class="field">
-          <%= f.label :電話番号 %><br />
-          <%= f.text_field :phone_number %>
-      </div>
-      <div class="field">
-          <%= f.label :メールアドレス %><br />
-          <%= f.email_field :email %>
-      </div>
-      <div class="field">
-          <%= f.label :アカウントID %><br />
-          <%= f.number_field :account_id %>
-      </div>
-          <%= f.submit "更新", class:'btn btn-sm btn-primary mt-2' %>
-    <% end %>
-</div>
+    <h4 class="mb-5">ユーザー情報編集</h4>
+    <%= render 'layouts/error', var: @user %>
+    <div class="ef">
+        <%= form_for(@user) do |f| %>
+        <div class="field mb-2">
+            <%= f.attachment_field :profile_image %>
+        </div>
+        <div class="field">
+            <%= f.label :名前 %><br />
+            <%= f.text_field :name %>
+        </div>
+        <div class="field">
+            <%= f.label :電話番号 %><br />
+            <%= f.text_field :phone_number %>
+        </div>
+        <div class="field">
+            <%= f.label :メールアドレス %><br />
+            <%= f.email_field :email %>
+        </div>
+        <div class="field">
+            <%= f.label :アカウントID %><br />
+            <%= f.number_field :account_id %>
+        </div>
+            <%= f.submit "更新", class:'btn btn-sm btn-primary mt-2' %>
+        <% end %>
+    </div>
