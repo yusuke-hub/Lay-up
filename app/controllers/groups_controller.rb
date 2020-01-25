@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-  	@group = Group.new(group_params)
+    @group = Group.new(group_params)
     if @group.save
       redirect_to  groups_path
     else
@@ -44,6 +44,6 @@ class GroupsController < ApplicationController
 
   private
     def group_params
-    	params.require(:group).permit(:name,:caption)
+    	params.require(:group).permit(:name, :caption, belongings_attributes:[:user_id, :activation])
     end
 end
