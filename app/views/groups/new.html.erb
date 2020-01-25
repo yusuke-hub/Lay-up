@@ -1,4 +1,5 @@
         <h4>グループ作成</h4>
+        <%= render 'layouts/error', var: @group %>
         <div class="gf  mt-3">
           <%= form_for(@group) do |f| %>
             <%= f.label :グループ名 %><br />
