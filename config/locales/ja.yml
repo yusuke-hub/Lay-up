@@ -205,21 +205,21 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
-
   user:
-    email: "メールアドレス"
-    name: "名前"
-    account_id: "アカウントID"
-    profile_image: "プロフィール画像"
-    phone_number: "電話番号"
+    email: メールアドレス
+    encrypted_password: パスワード
+    name: 名前
+    account_id: アカウントID
+    profile_image: プロフィール画像
+    phone_number: 電話番号
   plan:
-    departure: "出発地"
-    shelter: "避難先"
-    distance: "距離"
-    duration: "時間"
+    departure: 出発地
+    shelter: 避難先
+    distance: 距離
+    duration: 時間
   group:
-    name: "グループ名"
-    caption: "紹介"
+    name: グループ名
+    caption: 紹介
   comment:
-    content: "コメント"
-  site_title: "Noah"
+    content: コメント
+  site_title: Noah

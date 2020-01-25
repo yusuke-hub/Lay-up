@@ -70,6 +70,7 @@ ja:
     attributes:
       user:
         email: メールアドレス
+        encrypted_password: パスワード
         name: 名前
         account_id: アカウントID
         profile_image: プロフィール画像
