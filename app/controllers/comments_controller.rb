@@ -8,7 +8,8 @@ class CommentsController < ApplicationController
         format.json { render json: @comment}
       end
     else
-      render :detail, alert: 'コメントを入力してください' 
+      @plan = Plan.find(params[:plan_id])
+      render 'plans/detail', @plan, alert: 'コメントを入力してください' 
     end
   end    
   def show

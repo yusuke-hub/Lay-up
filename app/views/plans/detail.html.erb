@@ -10,7 +10,9 @@
 	</tr>
   <tr>
 		<td>
+			<% if @plan.present? %>
 				<%= @plan.created_at.strftime('%Y/%m/%d')  %>
+			<% end %>
 		</td>
 		<td><%= @plan.departure %></td>
 		<td><%= @plan.shelter %></td>
@@ -28,7 +30,7 @@
     <%= f.submit "コメントする", class:'form_submit js-submit btn btn-sm btn-primary' %>
   <% end %>
 	<ul class="comments">
-		<%= render @comments %>
+		<%= render 'plans/comments', @comments %>
 	</ul>
 </div>
     <%= @plan.comments.each do |comment| %>
@@ -52,9 +54,9 @@
 				url: "<%= plan_comments_path(@plan.id) %>",
 				data: {
 					comment: {
-						content: comment
-						// user_id: $(this).(.comment).attr('id')
-						// plan_id: @plan.id
+						content: comment,
+						user_id: <%= current_user.id %>,
+						plan_id: <%= @plan.id %>
 					}
 				},
 				dataType: 'json'
