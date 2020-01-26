@@ -4,31 +4,31 @@
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="field">
     <%= f.label :名前 %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "email" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "email", class: 'mb-2' %>
   </div>
   <div class="field">
     <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email %>
+    <%= f.email_field :email, class: 'mb-2' %>
   </div>
   <div class="field">
     <%= f.label :電話番号 %><br/>
-    <%= f.text_field :phone_number %>
+    <%= f.text_field :phone_number, class: 'mb-2' %>
   </div>
   <div class="field">
     <%= f.label :アカウントID %><br />
-    <%= f.number_field :account_id, placeholder: '数字を入力' %>
+    <%= f.number_field :account_id, placeholder: '数字を入力', class: 'mb-2' %>
   </div>
   <div class="field">
     <%= f.label :パスワード %>
     <% if @minimum_password_length %>
     <em>(最低 <%= @minimum_password_length %>文字)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: 'mb-2' %>
   </div>
 
   <div class="field">
     <%= f.label :パスワード確認 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'mb-2' %>
   </div>
 
   <div class="actions">
