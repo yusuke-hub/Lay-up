@@ -15,7 +15,7 @@ class BelongingsController < ApplicationController
   def destroy
     @belonging = Belonging.find(params[:id])
     @belonging.destroy
-      redirect_to group_confirm_path
+      redirect_to groups_path
   end
   private
   def belonging_params

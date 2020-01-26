@@ -8,11 +8,8 @@
       <tr>
         <td><%= belonging.group.name %></td>
         <td><%= belonging.group.caption %></td>
-        <td>
-          <%# <%= form_for belonging do |f| %>
-            <%# <%= f.submit "参加" %>
-          <%# <% end %>   
-          <%= link_to "参加", belonging_path(belonging.id), method: :patch, class:'btn btn-sm btn-success' %>
+        <td> 
+          <%= link_to "参加", belonging_path(belonging.id), method: :patch, class:'btn btn-sm btn-success mr-3' %>
           <%= link_to "不参加", belonging_path(belonging.id), method: :delete, class: 'btn btn-sm btn-secondary'%>
         </td>
       </tr>

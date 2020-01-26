@@ -68,7 +68,7 @@
        .done(function(data) {
          window.location =  '/groups';  
         // グループへ招待したら、画面上からグループを消す。
-        //  $(this).children('option:selected').remove();
+         $(this).children('option:selected').remove();
          })
        .fail(function() {
          alert('招待に失敗しました')

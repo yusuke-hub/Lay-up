@@ -29,9 +29,11 @@
     <%= f.text_area :content, { class:'form_text_area js-form_text-area comment', id: current_user.id , style:'width: 100%; height: 100px;' }  %>
     <%= f.submit "コメントする", class:'form_submit js-submit btn btn-sm btn-primary' %>
   <% end %>
-	<ul class="comments">
-		<%= render 'plans/comments', @comments %>
-	</ul>
+	<% if @comments.present? %>
+		<ul class="comments">
+			<%= render @comments %>
+		</ul>
+	<% end %>
 </div>
     <%= @plan.comments.each do |comment| %>
       <li class="comment">
@@ -42,7 +44,7 @@
 <script>
 	$(document).ready(function() {
 		function buildHTML(comment) {
-			var html = $('<li class="comment-list">').append(comment.content);
+			var html = $('<li class="comment">').append(comment.content);
 			return html;
 		}
 		$('.js-form').on('submit', function(e){
