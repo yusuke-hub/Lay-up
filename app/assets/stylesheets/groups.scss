@@ -1,3 +1,17 @@
 // Place all the styles related to the groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.profile-image {
+  width: 42px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.table tr th,
+td {
+  font-size: 14px;
+}
+.table tr p {
+  line-height: 42px;
+  margin: 0px;
+}

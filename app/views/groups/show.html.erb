@@ -11,21 +11,21 @@
 				<% if Belonging.where(user_id: group_user.id, activation: true).exists? %>
 					<tr>
 						<td>
-							<%= attachment_image_tag group_user.profile_image, :profile_image, format:'png', class:'profile-img rounded-circle pull-left my-4', fallback:'no-image.png' %>
-							<%= group_user.name %>
+									<%= attachment_image_tag group_user, :profile_image, format:'png', class:'profile-image rounded-circle pull-left', fallback:'no-image.png' %>
+								<p><%= group_user.name %></p>
 						</td>
 						<td>
-							<%= group_user.phone_number %>
+							<p><%= group_user.phone_number %></p>
 						</td>
 						<td>
-							<%= group_user.email %>
+							<p><%= group_user.email %></p>
 						</td>
 						<td>
-							<%=  group_user.account_id %>
+							<p><%=  group_user.account_id %></p>
 						</td>
 						<td>
 							<%= link_to plan_path(group_user.id) do %>
-								<%= group_user.plans.count %>
+								<p><%= group_user.plans.count %></p>
 							<% end %>
 						</td>
 					</tr>
