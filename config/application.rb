@@ -13,6 +13,7 @@ module LayUp
     config.time_zone = 'Asia/Tokyo'
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    config.action_view.automatically_disable_submit_tag = false # この行を追加
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

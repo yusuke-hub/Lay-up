@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/groups/confirm', to: 'groups#confirm', as: 'group_confirm'
   resources :users, only: [:index,:show,:edit, :destroy, :update]
   resources :plans, only: [:index,:new, :create,:show,:edit,:update,:destroy] do
-    resource :comments, only:[:show, :create, :destroy]
+    resources :comments, only:[:show, :create, :destroy]
   end
   resources :groups, only: [:new,:index,:create,:show,:edit,:update,:destroy]
   resources :belongings, only: [:create, :destroy, :update]

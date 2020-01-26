@@ -22,8 +22,7 @@ class UsersController < ApplicationController
           end
       end
 
-      if user.belongings.where(activation: false)
-        
+
       if check_flg == false
         redirect_to users_path
       end

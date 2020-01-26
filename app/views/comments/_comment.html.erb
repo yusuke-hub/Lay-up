@@ -1,10 +1,15 @@
-<div class="indicator">
-  <li class="comment list-unstyled">
-    <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
-    <%= attachment_image_tag comment.user.profile_image, format: 'png', class: 'rounded-circle pull-left  profile-image', fallback: 'no-image.png' %>
-    <%= comment.user.name %>
-    <div class="content inline">
-      <%= comment.content %>
+<div class="comment-box">
+  <div><%= attachment_image_tag comment.user, :profile_image, format: 'png', class: 'rounded-circle pull-left  profile-image', fallback: 'no-image.png' %></div>
+  <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
+  <%= comment.user.name %>
+  <div class="indicator mb-4">
+    <div class="comment list-unstyled">
+      <div class="content inline mt-4">
+        <%= comment.content %>
+      </div>
+      <%= link_to  plan_comment_path(plan.id, comment.id), method: :delete do %>
+        <i class="fas fa-trash pull-right mb-1 mr-3"></i>
+      <% end %>
     </div>
-  </li>
-</div>
+  </div>
+ </div>
