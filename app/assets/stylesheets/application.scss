@@ -39,12 +39,15 @@ h4 {
 
 .nav li a {
   padding: 10px 6px;
+  color: black;
 }
 
 .nav li a:hover {
+  color: #f9760a;
   text-decoration: none;
-  background-color: #f9760a;
+  background-color: #f2f2f2;
   transition: background-color 1s ease-in-out 0s;
+  transition: color 1s ease-in-out 0s;
 }
 
 .navbar {

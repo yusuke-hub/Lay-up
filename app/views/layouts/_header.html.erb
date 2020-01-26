@@ -22,16 +22,16 @@
         <% if user_signed_in? %>
         <ul class="nav navbar-expand navbar-right">
             <li class="">
-                <%= link_to "   ユーザ 検索", users_path, class:'mr-5 text-dark' %>
+                <%= link_to "   ユーザ 検索", users_path, class:'mr-5' %>
             </li>
             <li class="">
-                <%= link_to "    マイグループ", groups_path, class:'mr-5 text-dark' %>
+                <%= link_to "    マイグループ", groups_path, class:'mr-5' %>
             </li>
             <li class="">
-                <%= link_to "   避難計画一覧",  plan_path(current_user.id), class:'mr-5 text-dark' %>
+                <%= link_to "   避難計画一覧",  plan_path(current_user.id), class:'mr-5' %>
             </li>
             <li class="">
-                <%= link_to "   ログアウト", destroy_user_session_path, class:"text-dark", method: :delete %>
+                <%= link_to "   ログアウト", destroy_user_session_path, method: :delete %>
             </li>
         </ul>
         <% else %>

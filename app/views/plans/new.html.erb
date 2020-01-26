@@ -1,12 +1,14 @@
       <h4>避難計画登録</h4>
       <div id="map"></div>
-      <form class="mb-5" onsubmit="return false;">
+      <form class="mb-4" onsubmit="return false;">
         <input type="text" id="address" placeholder="  地点を入力" style="width:600px; height:35px;"><br/>
         <button type="button" value="検索" id="map_button" class="btn-md btn-secondary">検索</button>
       </form>
+      <div class="elevation mb-5">
           <p>この場所は<br>
-            標高 <input type="text" id="elev" value="">M<br>
+            標高 <input type="text" id="elev" value=""> M<br>
             場所を入力すると標高情報が取得できます。</p>
+      </div>
         <form id="distance_form">
           <div class="form-group">
             <label>出発地:
