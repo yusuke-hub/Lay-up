@@ -1,5 +1,10 @@
-
-<li class="comment list-unstyled">
-<%= attachment_image_tag%>
-  <%= comment.content %>
-</li>
+<div class="indicator">
+  <li class="comment list-unstyled">
+    <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
+    <%= attachment_image_tag comment.user.profile_image, format: 'png', class: 'rounded-circle pull-left  profile-image', fallback: 'no-image.png' %>
+    <%= comment.user.name %>
+    <div class="content inline">
+      <%= comment.content %>
+    </div>
+  </li>
+</div>
