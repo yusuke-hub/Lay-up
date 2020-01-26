@@ -12,15 +12,20 @@ class UsersController < ApplicationController
   def show
       @user = User.find(params[:id])
       check_flg = false
+      # if current_user.belongings.blank?
+      #   check_flg = true
+      # end      
       current_user.belongings.each do |belonging|
         @belongings = Belonging.where(group_id: belonging.group_id)
-          if @belongings.exists?(user_id: @user.id)
+          if @belongings.exists?(user_id: @user.id, activation: true)
             check_flg = true
           end
       end
 
+      if user.belongings.where(activation: false)
+        
       if check_flg == false
-        redirect_to user_path(current_user)
+        redirect_to users_path
       end
   end
 
