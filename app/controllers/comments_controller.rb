@@ -4,10 +4,6 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @plan = Plan.find(params[:plan_id])
     if @comment.save
-      # respond_to do |format|
-      #   format.html 
-      #   format.json { }
-      # end
       render partial: 'comments/comment', locals: {comment: @comment, plan: @plan}
     else
       render 'plans/detail', @plan, alert: 'コメントを入力してください' 
