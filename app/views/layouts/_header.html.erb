@@ -22,6 +22,12 @@
         <% if user_signed_in? %>
         <ul class="nav navbar-expand navbar-right">
             <li class="">
+                <%= link_to "   Top", root_path, class:'mr-5 text-dark'  %>
+            </li>        
+            <li class="">
+                <%= link_to "   About", home_about, class:'mr-5 text-dark'  %>
+            </li>        
+            <li class="">
                 <%= link_to "   ユーザ 検索", users_path, class:'mr-5' %>
             </li>
             <li class="">
@@ -37,7 +43,10 @@
         <% else %>
         <ul class="nav navbar-expand navbar-right">
             <li class="">
-                <%= link_to "   About", root_path, class:'mr-5 text-dark'  %>
+                <%= link_to "   Top", root_path, class:'mr-5 text-dark'  %>
+            </li>        
+            <li class="">
+                <%= link_to "   About", home_about_path, class:'mr-5 text-dark'  %>
             </li>
             <li class="">
                 <%= link_to "   新規登録", new_user_registration_path, class:'mr-5 text-dark'  %>
