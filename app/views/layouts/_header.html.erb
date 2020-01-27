@@ -20,12 +20,12 @@
         <% end %>
     <div class="navbar justify-content-end clearfix">
         <% if user_signed_in? %>
-        <ul class="nav navbar-expand navbar-right">
+        <ul class="nav navbar-expand">
             <li class="">
-                <%= link_to "   Top", root_path, class:'mr-5 text-dark'  %>
+                <%= link_to "   Top", root_path, class:'mr-5' %>
             </li>        
             <li class="">
-                <%= link_to "   About", home_about, class:'mr-5 text-dark'  %>
+                <%= link_to "   About", home_about, class:'mr-5' %>
             </li>        
             <li class="">
                 <%= link_to "   ユーザ 検索", users_path, class:'mr-5' %>
@@ -41,18 +41,18 @@
             </li>
         </ul>
         <% else %>
-        <ul class="nav navbar-expand navbar-right">
+        <ul class="nav navbar-expand">
             <li class="">
-                <%= link_to "   Top", root_path, class:'mr-5 text-dark'  %>
+                <%= link_to "   Top", root_path, class:'mx-5' %>
             </li>        
             <li class="">
-                <%= link_to "   About", home_about_path, class:'mr-5 text-dark'  %>
+                <%= link_to "   About", home_about_path, class:'mx-5' %>
             </li>
             <li class="">
-                <%= link_to "   新規登録", new_user_registration_path, class:'mr-5 text-dark'  %>
+                <%= link_to "   新規登録", new_user_registration_path, class:'mx-5' %>
             </li>
             <li class="">
-                <%= link_to "   ログイン", new_user_session_path, class:'text-dark' %>
+                <%= link_to "   ログイン", new_user_session_path, class:'mx-5' %>
             </li>
             <% end %>
         </ul>

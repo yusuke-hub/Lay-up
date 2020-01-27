@@ -20,7 +20,8 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: monospace;
+  font-family: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", Meiryo,
+    メイリオ, Osaka, "MS PGothic", arial, helvetica, sans-serif;
 }
 
 h4 {
@@ -31,6 +32,9 @@ h4 {
 }
 
 /*ナビゲーションバー*/
+.nav {
+  margin: 0 auto;
+}
 .nav li {
   list-style: none;
   float: left;
@@ -38,6 +42,7 @@ h4 {
 }
 
 .nav li a {
+  font-size: 20px;
   padding: 10px 6px;
   color: black;
 }
@@ -66,7 +71,9 @@ h4 {
   text-align: center;
 }
 .shelter {
-  width: 30%;
+  margin: 48px 0px 24px 0px;
+  width: 27%;
+  height: auto;
 }
 
 .news {
