@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     if @user.destroy
-      redirect_to home_about_path
+      redirect_to root_path
     end
   end
 
