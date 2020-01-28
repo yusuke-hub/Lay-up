@@ -22,22 +22,22 @@
         <% if user_signed_in? %>
         <ul class="nav navbar-expand">
             <li class="">
-                <%= link_to "   Top", root_path, class:'mr-5' %>
+                <%= link_to "   Top", root_path, class:'mx-5' %>
             </li>        
             <li class="">
-                <%= link_to "   About", home_about, class:'mr-5' %>
+                <%= link_to "   About", home_about_path, class:'mx-5' %>
             </li>        
             <li class="">
-                <%= link_to "   ユーザ 検索", users_path, class:'mr-5' %>
+                <%= link_to "   ユーザ 検索", users_path, class:'mx-5' %>
             </li>
             <li class="">
-                <%= link_to "    マイグループ", groups_path, class:'mr-5' %>
+                <%= link_to "    マイグループ", groups_path, class:'mx-5' %>
             </li>
             <li class="">
-                <%= link_to "   避難計画一覧",  plan_path(current_user.id), class:'mr-5' %>
+                <%= link_to "   避難計画一覧",  plan_path(current_user.id), class:'mx-5' %>
             </li>
             <li class="">
-                <%= link_to "   ログアウト", destroy_user_session_path, method: :delete %>
+                <%= link_to "   ログアウト", destroy_user_session_path, method: :delete, class:'mx-5' %>
             </li>
         </ul>
         <% else %>

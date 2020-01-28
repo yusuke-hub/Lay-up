@@ -22,18 +22,14 @@
   padding: 0;
   font-family: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", Meiryo,
     メイリオ, Osaka, "MS PGothic", arial, helvetica, sans-serif;
+  letter-spacing: 0.05em;
 }
 
-h4 {
+h3 {
   padding: 0.25em 0.5em; /*上下 左右の余白*/
   color: #494949; /*文字色*/
   background: transparent; /*背景透明に*/
   border-left: solid 5px #7db4e6; /*左線*/
-}
-
-#slider {
-  width: 100%;
-  height: 300px;
 }
 
 #map {
@@ -51,6 +47,10 @@ h4 {
   line-height: 36px;
   border-right: dotted 1px;
   color: #eb6100;
+}
+
+.nav li:last-child {
+  border: none;
 }
 
 .nav li a {
@@ -143,8 +143,11 @@ h4 {
 }
 .table td,
 .table th {
+  background-color: white;
   text-align: center;
 }
+
+// メイン
 
 /*フッター*/
 .wrapper {
@@ -156,7 +159,6 @@ h4 {
 footer {
   width: 100%;
   height: 120px;
-  background-color: #7db4e6;
   position: absolute;
   bottom: 0;
 }
