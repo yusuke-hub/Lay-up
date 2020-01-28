@@ -1,5 +1,7 @@
 <div class="comment-box">
-  <div><%= attachment_image_tag comment.user, :profile_image, format: 'png', class: 'rounded-circle pull-left profile-image', fallback: 'no-image.png' %></div>
+  <div>
+    <%= attachment_image_tag comment.user, :profile_image, format: 'png', class: 'rounded-circle pull-left profile-image', fallback: 'no-image.png' %>
+  </div>
   <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
   <%= comment.user.name %>
   <div class="indicator mb-4">
@@ -12,4 +14,4 @@
       <% end %>
     </div>
   </div>
- </div>
+</div>

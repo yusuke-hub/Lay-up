@@ -1,4 +1,4 @@
- <h4>メンバーリスト</h4>
+ <h3>メンバーリスト</h3>
  <table class="table table-bordered">
  	<tr>
  		<th>ユーザ名</th>
@@ -11,7 +11,7 @@
 				<% if Belonging.where(user_id: group_user.id, activation: true).exists? %>
 					<tr>
 						<td>
-									<%= attachment_image_tag group_user, :profile_image, format:'png', class:'profile-image rounded-circle pull-left', fallback:'no-image.png' %>
+								<%= attachment_image_tag group_user, :profile_image, format:'png', class:'profile-image rounded-circle pull-left', fallback:'no-image.png' %>
 								<p><%= group_user.name %></p>
 						</td>
 						<td>

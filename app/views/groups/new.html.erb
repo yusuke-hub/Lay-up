@@ -1,16 +1,16 @@
-        <h4>グループ作成</h4>
-        <%= render 'layouts/error', var: @group %>
-        <div class="gf  mt-3">
-          <%= form_for(@group) do |f| %>
-            <%= f.label :グループ名 %><br />
-            <%= f.text_field :name %><br />
-            <%= f.label :紹介 %><br />
-            <%= f.text_area :caption %><br/>
-            <%= f.fields_for :belongings do |q| %>
-              <%= q.hidden_field :user_id, :value => current_user.id %>
-              <%= q.hidden_field :activation, :value => true %>
-            <% end %>
-            <%= f.submit "作成",class:'btn btn-sm btn-warning text-muted mt-2' %>
-          <% end %>
-        </div>
+<h3>グループ作成</h3>
+<%= render 'layouts/error', var: @group %>
+<div class="gf  mt-3">
+  <%= form_for(@group) do |f| %>
+    <%= f.label :グループ名 %><br />
+    <%= f.text_field :name %><br />
+    <%= f.label :紹介 %><br />
+    <%= f.text_area :caption %><br/>
+    <%= f.fields_for :belongings do |q| %>
+      <%= q.hidden_field :user_id, :value => current_user.id %>
+      <%= q.hidden_field :activation, :value => true %>
+    <% end %>
+    <%= f.submit "作成",class:'btn btn-sm btn-warning text-muted mt-2' %>
+  <% end %>
+</div>
 
