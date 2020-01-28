@@ -14,9 +14,9 @@
           <p><i id="user-icon" class="welcome fa fa-user"></i></p>
           <p class="welcome text-right"><%= link_to current_user.name, user_path(current_user.id) %></p>
           <p><i id="group-icon" class="make-group fas fa-users"></i></p>
-          <p class="make-group text-right"><%= link_to "グループを作成", new_group_path %>
+          <p class="make-group text-right"><%= link_to "グループを作る", new_group_path %>
           <p><i id="guard-icon" class="make-plan fas fa-user-shield"></i></p>
-          <p class="make-plan text-right"><%= link_to "避難計画を登録", new_plan_path %></p>
+          <p class="make-plan text-right"><%= link_to "避難計画を作る", new_plan_path %></p>
         <% end %>
     <div class="navbar justify-content-end clearfix">
         <% if user_signed_in? %>

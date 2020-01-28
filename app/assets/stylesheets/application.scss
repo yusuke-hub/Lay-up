@@ -37,7 +37,9 @@ h3 {
   height: 400px;
   width: 600px;
 }
-
+.field {
+  width: 100%;
+}
 /*ナビゲーションバー*/
 .nav {
   margin: 0 auto;
@@ -148,8 +150,6 @@ h3 {
   text-align: center;
 }
 
-// メイン
-
 /*フッター*/
 .wrapper {
   min-height: 100vh;
@@ -166,4 +166,15 @@ footer {
 
 footer p {
   line-height: 120px;
+}
+
+// 戻るボタン
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+#back img {
+  width: 50px;
 }

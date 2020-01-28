@@ -1,5 +1,9 @@
 <div class="container">
-<h5 class="mb-4">あなたの避難計画 >> 避難計画詳細</h5>
+<% if @plan.id == current_user.id %>
+	<h5 class="mb-4">あなたの避難計画 >> 避難計画詳細</h5>
+<% else %>
+	<h5 class="mb-4"><%= @plan.user.name %>さんの避難計画 >> 避難計画詳細</h5>
+<% end %>
 	<h3>避難計画詳細</h3>
 	<table class="table table-bordered">
 		<tr>
@@ -41,6 +45,7 @@
 			</div>
 		<% end %>
 </div>
+<%= render 'layouts/back_btn'%>   
        
 <script>
 	$(document).ready(function() {
