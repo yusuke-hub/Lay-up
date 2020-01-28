@@ -14,10 +14,17 @@
 
 main {
   background-color: #fcfaea;
-  height: 840px;
-  padding-top: 84px;
+  height: 1000px;
+  padding-top: 48px;
   margin-top: 10px;
   position: relative;
+}
+.text {
+  height: 340px;
+}
+.text2 {
+  text-align: center;
+  height: 300px;
 }
 
 .text-box {
@@ -33,8 +40,17 @@ main {
 .text-content {
   margin: 0 auto;
   text-align: center;
+  border-bottom: dashed 2px;
+  color: #eb6100;
+  padding-bottom: 36px;
 }
 .marker {
   color: #eb6100;
   border-bottom: solid 1px #eb6100;
+}
+#intro-img {
+  width: 240px;
+  position: absolute;
+  top: 540px;
+  left: 380px;
 }

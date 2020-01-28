@@ -22,19 +22,16 @@
         <% if user_signed_in? %>
         <ul class="nav navbar-expand">
             <li class="">
-                <%= link_to "   Top", root_path, class:'mx-5' %>
-            </li>        
+                <%= link_to "   Noahとは？", root_path, class:'mx-5' %>
+            </li>      
             <li class="">
-                <%= link_to "   About", home_about_path, class:'mx-5' %>
-            </li>        
-            <li class="">
-                <%= link_to "   ユーザ 検索", users_path, class:'mx-5' %>
+                <%= link_to "   友達検索", users_path, class:'mx-5' %>
             </li>
             <li class="">
-                <%= link_to "    マイグループ", groups_path, class:'mx-5' %>
+                <%= link_to "    あなたのグループ", groups_path, class:'mx-5' %>
             </li>
             <li class="">
-                <%= link_to "   避難計画一覧",  plan_path(current_user.id), class:'mx-5' %>
+                <%= link_to "   あなたの避難計画",  plan_path(current_user.id), class:'mx-5' %>
             </li>
             <li class="">
                 <%= link_to "   ログアウト", destroy_user_session_path, method: :delete, class:'mx-5' %>
@@ -43,11 +40,8 @@
         <% else %>
         <ul class="nav navbar-expand">
             <li class="">
-                <%= link_to "   Top", root_path, class:'mx-5' %>
+                <%= link_to "   Noahとは？", root_path, class:'mx-5' %>
             </li>        
-            <li class="">
-                <%= link_to "   About", home_about_path, class:'mx-5' %>
-            </li>
             <li class="">
                 <%= link_to "   新規登録", new_user_registration_path, class:'mx-5' %>
             </li>

@@ -1,3 +1,4 @@
+<div class="container">
   <%= search_form_for @search do |f| %>
     <h3>ユーザ検索</h3>
     <%= f.label :name_cont, "ユーザー名" %><br/>
@@ -10,43 +11,44 @@
       <%= f.submit '検索', class:'btn btn-sm btn-secondary mt-3 mr-3' %>
     </div>
   <% end %>
-<table class="table table-bordered">
-    <tr>
-        <th>ユーザー名</th>
-        <th>マイグループ数</th>
-        <th>計画数</th>
-        <th></th>
-    </tr>
-      <% @results.each do |user| %>
-        <tr>
-          <td>
-            <%= link_to user_path(user.id) do %>
+  <table class="table table-bordered">
+      <tr>
+          <th>ユーザー名</th>
+          <th>マイグループ数</th>
+          <th>計画数</th>
+          <th></th>
+      </tr>
+        <% @results.each do |user| %>
+          <tr>
+            <td>
+              <%= link_to user_path(user.id) do %>
+                <% if user.id == current_user.id %>
+                  <i class="fas fa-user-check"></i>
+                <% end %>
+                  <%= user.name %>
+              <% end %>
+            </td>
+            <td>
+              <% groups = user.belongings.where(activation: true) %>
+                <%= groups.count %>
+            </td>
+            <td>
+              <%= link_to plan_path(user.id) do %>
+                <%= user.plans.count %>
+              <% end %>
+            </td>
+            <td>
               <% if user.id == current_user.id %>
-                <i class="fas fa-user-check"></i>
+              <% else %>
+                <%= form_for @belonging, url:'#'  do |f| %>
+                  <%= f.select :group_id, current_user.groups.map { |group| [group.name, group.id] }, { prompt: 'グループを選択して招待' }, { class:'group', id: user.id } %>
+                <% end %>
               <% end %>
-                <%= user.name %>
-            <% end %>
-          </td>
-          <td>
-            <% groups = user.belongings.where(activation: true) %>
-              <%= groups.count %>
-          </td>
-          <td>
-            <%= link_to plan_path(user.id) do %>
-              <%= user.plans.count %>
-            <% end %>
-          </td>
-          <td>
-            <% if user.id == current_user.id %>
-            <% else %>
-              <%= form_for @belonging, url:'#'  do |f| %>
-                <%= f.select :group_id, current_user.groups.map { |group| [group.name, group.id] }, { prompt: 'グループを選択して招待' }, { class:'group', id: user.id } %>
-              <% end %>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-</table>
+            </td>
+          </tr>
+        <% end %>
+  </table>
+</div>
 
 <script>
   $(document).ready(function() {
