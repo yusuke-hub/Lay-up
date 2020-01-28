@@ -21,10 +21,12 @@ main {
 }
 .text {
   height: 340px;
+  margin-bottom: 160px;
 }
 .text2 {
   text-align: center;
   height: 300px;
+  margin-top: 30px;
 }
 
 .text-box {
@@ -53,4 +55,8 @@ main {
   position: absolute;
   top: 540px;
   left: 380px;
+}
+
+#guide {
+  background: linear-gradient(transparent 85%, #a9e2f3 60%);
 }
