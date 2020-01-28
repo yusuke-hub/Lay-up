@@ -1,6 +1,24 @@
+    <div class="containe-fluid main-visual my-5">
+        <div class="b"><img class="c" src="/assets/plan.jpg"></div>
+        <div class="b"><img class="c" src="/assets/hand-in-hand.jpg"></div>
+    </div>  
     <main>
-      <div class="main-text">
-        <h2 class="mb-4">Noahとは？</h2>
-        <p style="font-size: 20px; line-height: 48px">家族や友人同士で、非常時の避難先を登録、共有することができるアプリケョンです。<br/>「ノアの方舟」に登場するノアは、自身で方舟を作り、自分とその家族を大洪水から守りました<br/>彼のよう備をすることで、大切な人を守れるようにと願いを込めて、「Noah」と名付けました</p>
+      <div class="text">
+        <div class="text-box">
+          <div class="text-content">
+            <h2 class="mb-4">Noahとは？</h2>
+            <p style="font-size: 20px; line-height: 48px">家族や友人同士で、非常時の<span class="marker">避難先を登録</span>、<span class="marker">共有</span>できるアプリケーションです。<br/>「Noah」という名前は、「ノアの方舟」に登場するノアに由来しています。<br/>このアプリを使う方が、<span class="marker">自分と大切な人を守れますように</span>、という願いを込めました</p>
+          </div>
+        </div>
       </div>
     </main>
+    <script>
+      $(function() {
+          $('.main-visual').slick({
+              dots: true,
+              autoplay: true,
+              autoplaySpeed: 4000,
+              speed: 2000
+          });
+      });
+    </script>

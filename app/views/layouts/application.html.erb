@@ -7,6 +7,9 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>    
     <script src="https://kit.fontawesome.com/81cfb2a25f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="http://maps.google.com/maps/api/js?libraries=places&region=JP&key=AIzaSyDD9qQbA86daM6MFm2Pgkm7h3wVHZ9QooA&language=ja"></script>    
@@ -17,11 +20,7 @@
       <header>
         <%= render 'layouts/header' %>
       </header>
-      <div class="main">
-        <div class="container">
-            <%= yield %>
-        </div>
-      </div>
+      <%= yield %>
       <%= render 'layouts/footer' %>
     </div>
 </body>
