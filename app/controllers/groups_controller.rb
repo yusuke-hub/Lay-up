@@ -18,7 +18,8 @@ class GroupsController < ApplicationController
     @invited_belonging = current_user.belongings.where(activation: false)
   end
   def show
-    @group_users = Group.find(params[:id]).users
+    @group = Group.find(params[:id])
+    @group_users = @group.users
   end
   def edit
     @group = Group.find(params[:id])
