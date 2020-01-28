@@ -1,4 +1,6 @@
-    <h3 class="mb-5">ユーザー情報編集</h3>
+<div class="container">
+    <h5 class="mb-4">マイページ >> 登録情報編集</h5>
+    <h3 class="mb-5">登録情報編集</h3>
     <%= render 'layouts/error', var: @user %>
     <div class="ef">
         <%= form_for(@user) do |f| %>
@@ -24,3 +26,4 @@
             <%= f.submit "更新", class:'btn btn-sm btn-primary mt-2' %>
         <% end %>
     </div>
+</div>    

@@ -1,34 +1,36 @@
-<h3>マイグループ</h3>
-<% if @belongings.exists? %>
-    <table class="table table-bordered">
-        <tr>
-            <th>作成日</th>
-            <th>グループ名</th>
-            <th> 紹介</th>
-            <th>人数</th>
-            <th></th>
-        </tr>
-        <% @belongings.each do |belonging| %>
+<div class="container">
+    <h3>あなたのグループ</h3>
+    <% if @belongings.exists? %>
+        <table class="table table-bordered">
             <tr>
-                <td>
-                    <%= link_to group_path(belonging.group.id) do %>
-                        <%= belonging.group.created_at.strftime('%Y/%m/%d') %>
-                    <% end %>                
-                </td>
-                <td>
-                    <%= belonging.group.name %>
-                </td>
-                <td>
-                    <%= belonging.group.caption %>
-                </td>
-                <td>
-                    <%= Belonging.where(group_id: belonging.group_id, activation: true).count %>
-                </td>
-                <td>
-                    <%= link_to "編集", edit_group_path(belonging.group), class:'btn btn-sm btn-success mr-3' %>
-                    <%= link_to "退出", belonging_path(belonging.id), class:'btn btn-sm btn-danger', method: :delete %>
-                </td>
+                <th>作成日</th>
+                <th>グループ名</th>
+                <th> メモ</th>
+                <th>人数</th>
+                <th></th>
             </tr>
-        <% end %>
-    </table>
-<% end %>
+            <% @belongings.each do |belonging| %>
+                <tr>
+                    <td>
+                        <%= link_to group_path(belonging.group.id) do %>
+                            <%= belonging.group.created_at.strftime('%Y/%m/%d') %>
+                        <% end %>                
+                    </td>
+                    <td>
+                        <%= belonging.group.name %>
+                    </td>
+                    <td>
+                        <%= belonging.group.caption %>
+                    </td>
+                    <td>
+                        <%= Belonging.where(group_id: belonging.group_id, activation: true).count %>
+                    </td>
+                    <td>
+                        <%= link_to "編集", edit_group_path(belonging.group), class:'btn btn-sm btn-success mr-3' %>
+                        <%= link_to "退出", belonging_path(belonging.id), class:'btn btn-sm btn-danger', method: :delete %>
+                    </td>
+                </tr>
+            <% end %>
+        </table>
+    <% end %>
+</div>

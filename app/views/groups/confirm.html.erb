@@ -1,17 +1,19 @@
-<table class="table table-bordered">
-    <tr>
-      <th>グループ名</th>
-      <th>紹介</th>
-      <th></th>
-    </tr>
-    <% @invited_belonging.each do |belonging| %>
+<div class="container">
+  <table class="table table-bordered">
       <tr>
-        <td><%= belonging.group.name %></td>
-        <td><%= belonging.group.caption %></td>
-        <td> 
-          <%= link_to "参加", belonging_path(belonging.id), method: :patch, class:'btn btn-sm btn-success mr-3' %>
-          <%= link_to "不参加", belonging_path(belonging.id), method: :delete, class: 'btn btn-sm btn-secondary'%>
-        </td>
+        <th>グループ名</th>
+        <th>紹介</th>
+        <th></th>
       </tr>
-    <% end %>
-</table>
+      <% @invited_belonging.each do |belonging| %>
+        <tr>
+          <td><%= belonging.group.name %></td>
+          <td><%= belonging.group.caption %></td>
+          <td> 
+            <%= link_to "参加", belonging_path(belonging.id), method: :patch, class:'btn btn-sm btn-success mr-3' %>
+            <%= link_to "不参加", belonging_path(belonging.id), method: :delete, class: 'btn btn-sm btn-secondary'%>
+          </td>
+        </tr>
+      <% end %>
+  </table>
+</div>

@@ -1,43 +1,46 @@
-<h3>避難計画詳細</h3>
-<table class="table table-bordered">
-	<tr>
-		<th>日付</th>
-		<th>出発地</th>
-		<th>避難先</th>
-		<th>距離(M)</th>
-		<th>時間(分)</th>
-		<th></th>
-	</tr>
-  <tr>
-		<td>
-			<% if @plan.present? %>
-				<%= @plan.created_at.strftime('%Y/%m/%d')  %>
-			<% end %>
-		</td>
-		<td><%= @plan.departure %></td>
-		<td><%= @plan.shelter %></td>
-		<td><%= @plan.distance %></td>
-		<td><%= @plan.duration/60 %></td>
-		<td>
-			<%= link_to "削除", plan_path(@plan.id), method: :delete, class:'btn btn-sm btn-danger', method: :delete %>
-		</td>
-	</tr>  
-</table>
+<div class="container">
+<h5 class="mb-4">あなたの避難計画 >> 避難計画詳細</h5>
+	<h3>避難計画詳細</h3>
+	<table class="table table-bordered">
+		<tr>
+			<th>日付</th>
+			<th>出発地</th>
+			<th>避難先</th>
+			<th>距離(M)</th>
+			<th>時間(分)</th>
+			<th></th>
+		</tr>
+		<tr>
+			<td>
+				<% if @plan.present? %>
+					<%= @plan.created_at.strftime('%Y/%m/%d')  %>
+				<% end %>
+			</td>
+			<td><%= @plan.departure %></td>
+			<td><%= @plan.shelter %></td>
+			<td><%= @plan.distance %></td>
+			<td><%= @plan.duration/60 %></td>
+			<td>
+				<%= link_to "削除", plan_path(@plan.id), method: :delete, class:'btn btn-sm btn-danger', method: :delete %>
+			</td>
+		</tr>  
+	</table>
 
-<div class="comments mb-5">	
-  <%= form_for @comment, url: '#', html: { class: 'form js-form' } do |f| %>
-    <%= f.text_area :content, { class:'form_text_area js-form_text-area comment-form', id: current_user.id , style:'width: 100%; height: 100px; margin: 0px;' }  %>
-    <%= f.submit "コメントする", class:'form_submit js-submit btn btn-sm btn-primary' %>
-  <% end %>
+	<div class="comments mb-5">	
+		<%= form_for @comment, url: '#', html: { class: 'form js-form' } do |f| %>
+			<%= f.text_area :content, { class:'form_text_area js-form_text-area comment-form', id: current_user.id , style:'width: 100%; height: 100px; margin: 0px;' }  %>
+			<%= f.submit "コメントする", class:'form_submit js-submit btn btn-sm btn-primary' %>
+		<% end %>
+	</div>
+		<% if @comments.present? %>
+			<div class="comments mb-5">
+				<article class="partial" id="top_comment"></article>
+				<% @comments.each do |comment| %>
+					<article class="partial"><%= render 'comments/comment', comment: comment, plan: @plan %></article>
+				<% end %>
+			</div>
+		<% end %>
 </div>
-	<% if @comments.present? %>
-		<div class="comments mb-5">
-			<article class="partial" id="top_comment"></article>
-			<% @comments.each do |comment| %>
-				<article class="partial"><%= render 'comments/comment', comment: comment, plan: @plan %></article>
-			<% end %>
-		</div>
-	<% end %>
        
 <script>
 	$(document).ready(function() {

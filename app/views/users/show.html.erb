@@ -1,23 +1,24 @@
-<h3>マイページ</h3>
+<div class="container">
+	<h3>マイページ</h3>
+	<%= attachment_image_tag @user, :profile_image, format:'png', class:'profile-img rounded-circle pull-left  center-block my-4', fallback:'no-image.png' %>
 
-<%= attachment_image_tag @user, :profile_image, format:'png', class:'profile-img rounded-circle pull-left  center-block my-4', fallback:'no-image.png' %>
-
-<table class="table table-bordered">
-	<tr>
-		<td>ユーザー名</td><td><%= @user.name %></td>
-	</tr>
-	  <tr>
-	  	<td>電話番号</td><td><%= @user.phone_number %></td>
-	  </tr>
-	  <tr>
-		<td>メールアドレス</td><td><%= @user.email %></td>
-	  </tr>
-	  <tr>
-		  <td>アカウントID</td><td><%= @user.account_id %></td>
-	  </tr>
-</table>
-<div class="buttons mt-4">
-      <%= link_to "編集", edit_user_path(@user.id), class:'btn btn-sm btn-success mb-2' %><br/>
-      <%= link_to "削除", user_path(current_user.id), class:'btn btn-sm btn-danger mb-2', method: :delete, data: { confirm: '本当に削除してもよろしいですか?' } %><br/>	
+	<table class="table table-bordered">
+		<tr>
+			<td>ユーザー名</td><td><%= @user.name %></td>
+		</tr>
+			<tr>
+				<td>電話番号</td><td><%= @user.phone_number %></td>
+			</tr>
+			<tr>
+			<td>メールアドレス</td><td><%= @user.email %></td>
+			</tr>
+			<tr>
+				<td>アカウントID</td><td><%= @user.account_id %></td>
+			</tr>
+	</table>
+	<div class="buttons mt-4">
+				<%= link_to "編集", edit_user_path(@user.id), class:'btn btn-sm btn-success mb-2' %><br/>
+				<%= link_to "削除", user_path(current_user.id), class:'btn btn-sm btn-danger mb-2', method: :delete, data: { confirm: '本当に削除してもよろしいですか?' } %><br/>	
+	</div>
 </div>
 
