@@ -7,7 +7,7 @@
  		<th>電話番号</th>
  		<th>メールアドレス</th>
 	  <th>アカウントID</th>
- 		<th>避難計画数(<span style="border-bottom: solid 1px #eb6100;">ここからコメント</span>)</th>
+ 		<th>避難計画数</th>
  	</tr>
 	 		 <% @group_users.each do |group_user| %>
 				<% if Belonging.where(user_id: group_user.id, activation: true).exists? %>
