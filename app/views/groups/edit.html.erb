@@ -1,11 +1,13 @@
 <div class="gf container  mt-3">
-	<h5 class="mb-4">あなたのグループ >> グループページ</h5>
-	<h3>グループページ</h3>
-   	<%= form_for(@group) do |f| %>
-   		<%= f.label :グループ名 %><br />
-   		<%= f.text_field :name %><br />
-   		<%= f.label :メモ %><br />
-   		<%= f.text_area :caption %><br />
-   		<%= f.submit "更新",class:'btn btn-sm btn-warning text-muted mt-2' %>
-   	<% end %>
+	<div class="main-page">
+		<h5 class="mb-4">あなたのグループ >> グループ編集</h5>
+		<h3>グループ編集</h3>
+			<%= form_for(@group) do |f| %>
+				<%= f.label :グループ名 %><br />
+				<%= f.text_field :name %><br />
+				<%= f.label :メモ %><br />
+				<%= f.text_area :caption %><br />
+				<%= f.submit "更新",class:'btn btn-sm btn-warning text-muted mt-2' %>
+			<% end %>
+		</div>
 </div>
