@@ -20,6 +20,13 @@
 <body>
     <div class="wrapper">
       <header class="mb-3">
+        <% if @invited_group.present? && controller.action_name != "confirm" %>
+            <div class="invited-info">
+                <%= link_to group_confirm_path do %>
+                    招待<%= @invited_group.count %>件
+                <% end %>
+            </div>
+        <% end %>        
         <%= render 'layouts/header' %>
       </header>
     <% if user_signed_in? %>

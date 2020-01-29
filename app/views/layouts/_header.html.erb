@@ -2,22 +2,15 @@
         <%= link_to root_path do %>
           <%= image_tag "Noah-logo-latest.png", class:'logo shelter' %>
         <% end %>
-    <% if user_signed_in? %>
-        <div id="current_user_info">
-            <%= link_to  user_path(current_user.id), id:     'current_user-link' do %>
-                    <%= attachment_image_tag current_user, :profile_image,  format: 'png', class: 'rounded-circle  current_user_image mb-3', fallback: 'no-image.png' %>
-                    <p id="current_user_name"><%= current_user.name %>さん</p>
-            <% end %>
-        </div>
-    <% end %>
-    </div>
-        <% if @invited_group.present? && controller.action_name != "confirm" %>
-            <p class="news">
-                <%= link_to group_confirm_path do %>
-                    <%= @invited_group.count %> つのグループに招待されています！
+        <% if user_signed_in? %>
+            <div id="current_user_info">
+                <%= link_to  user_path(current_user.id), id:     'current_user-link' do %>
+                        <%= attachment_image_tag current_user, :profile_image,  format: 'png', class: 'rounded-circle  current_user_image mb-3', fallback: 'no-image.png' %>
+                        <p id="current_user_name"><%= current_user.name %>さん</p>
                 <% end %>
-            </p>
+            </div>
         <% end %>
+    </div>
     <div class="navbar justify-content-end clearfix">
         <% if user_signed_in? %>
         <ul class="nav navbar-expand">
