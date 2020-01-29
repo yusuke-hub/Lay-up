@@ -1,6 +1,6 @@
 <div class="gf container  mt-3">
 	<div class="main-page">
-		<h5 class="mb-4">あなたのグループ >> グループ編集</h5>
+		<h5 class="mb-4"><%= @group.name %> >> グループ編集</h5>
 		<h3>グループ編集</h3>
 			<%= form_for(@group) do |f| %>
 				<%= f.label :グループ名 %><br />
