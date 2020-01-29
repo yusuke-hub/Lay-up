@@ -11,12 +11,8 @@
             </p>
         <% end %>
         <% if user_signed_in? %>
-          <p><i id="user-icon" class="welcome fa fa-user"></i></p>
-          <p class="welcome text-right"><%= link_to current_user.name, user_path(current_user.id) %></p>
-          <p><i id="group-icon" class="make-group fas fa-users"></i></p>
-          <p class="make-group text-right"><%= link_to "グループを作る", new_group_path %>
-          <p><i id="guard-icon" class="make-plan fas fa-user-shield"></i></p>
-          <p class="make-plan text-right"><%= link_to "避難計画を作る", new_plan_path %></p>
+          <%# <p><i id="guard-icon" class="make-plan fas fa-user-shield"></i></p>
+          <p class="make-plan text-right"><%= link_to "避難計画を作る", new_plan_path %>
         <% end %>
     <div class="navbar justify-content-end clearfix">
         <% if user_signed_in? %>
@@ -24,9 +20,6 @@
             <li class="">
                 <%= link_to "   Noahとは？", root_path, class:'mx-5' %>
             </li>      
-            <li class="">
-                <%= link_to "   友達検索", users_path, class:'mx-5' %>
-            </li>
             <li class="">
                 <%= link_to "    あなたのグループ", groups_path, class:'mx-5' %>
             </li>
@@ -51,3 +44,10 @@
             <% end %>
         </ul>
     </div>
+     
+        <%# <div class="current_user_link">
+          <%= attachment_image_tag current_user, :profile_image, format: 'png', class: 'rounded-circle  profile-image', fallback: 'no-image.png' %>          
+          <%# <%= link_to current_user.name, user_path(current_user.id) %>
+        <%# </div>  %>
+
+    

@@ -19,9 +19,18 @@
 
 <body>
     <div class="wrapper">
-      <header class="mb-5">
+      <header class="mb-3">
         <%= render 'layouts/header' %>
       </header>
+    <% if user_signed_in? %>
+        <div class="btn-container">
+          <div class="btn-group">
+            <%= link_to "避難計画を作る", new_plan_path, class: 'main-btn plan-btn' %>
+            <%= link_to "グループを作る", new_group_path, class: 'main-btn group-btn' %>
+            <%= link_to " 友達検索", users_path, class:'main-btn search-btn' %>
+          </div>
+        </div>
+    <% end %>      
       <%= yield %>
       <%= render 'layouts/footer' %>
     </div>
