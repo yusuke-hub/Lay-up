@@ -84,9 +84,12 @@ Rspec.feature "Topページ,サインアップ,ログイン,ログアウトに�
         login(@user)
         visit root_path
         expect(page),to have_link "", href: root_path
-        expect(page),to have_link "", href: groups_path
+        expect(page),to have_link "", href: group_path(@user)
         expect(page),to have_link "", href: plan_path(@user)
         expect(page),to have_link "", href: destroy_user_session_path
+        expect(page),to have_link "", href: new_plan_path
+        expect(page),to have_link "", href: new_group_path
+        expect(page),to have_link "", href: users_path        
       end
       scenario "ログアウト時" do
         visit root_path

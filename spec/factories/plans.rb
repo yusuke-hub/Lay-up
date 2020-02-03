@@ -6,4 +6,16 @@ FactoryBot.define do
     duration { 9 }
     user
   end
+  trait :no_departure do
+    departure{}
+  end
+  trait :no_shelter do
+    shelter{}
+  end
+  trait :no_deistance do
+    deistance{}
+  end
+  trait :no_duration do
+    duration{}
+  end    
 end

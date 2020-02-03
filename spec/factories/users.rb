@@ -21,5 +21,10 @@ FactoryBot.define do
       trait :too_long_account_id do
         account_id{Faker::Lorem.characters(number: 13)}
       end
+      trait :create_with_plans do
+        after(:create) do |user|
+          create_list(:plan, 3, user: user)
+        end
+      end
   end
 end
