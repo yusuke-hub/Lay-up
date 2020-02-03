@@ -9,7 +9,8 @@
           <p>この場所は<br>
             標高 <input type="text" id="elev" value=""> M<br>
             場所を入力すると標高情報が取得できます。</p>
-      </div>
+      </div>      
+      <%= render 'layouts/error', var: @plan %>
         <form id="distance_form">
           <div class="form-group">
             <label>出発地:

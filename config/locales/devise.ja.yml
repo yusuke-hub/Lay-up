@@ -82,7 +82,7 @@ ja:
         duration: 時間
       group:
         name: グループ名
-        caption: 紹介
+        caption: メモ
       comment:
         content: コメント
       site_title: Noah

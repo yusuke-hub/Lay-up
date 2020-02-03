@@ -6,7 +6,7 @@
       <%= f.email_field :email, autofocus: true, autocomplete: "account_id", class: 'mb-2' %>
     </div>
     <div class="field">
-      <%= f.label :パスワード %><br />
+      <%= f.label :password %><br />
       <%= f.password_field :password, autocomplete: "current-password" %>
     </div>
     <% if devise_mapping.rememberable? %>

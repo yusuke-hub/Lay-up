@@ -1,6 +1,7 @@
 class PlansController < ApplicationController
   protect_from_forgery
   def new 
+    @plan = Plan.new
   end
   def index
     @plans = Plan.where(user_id: params[:id])
