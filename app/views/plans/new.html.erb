@@ -55,44 +55,46 @@
     <script>    
     var getMap = (function() {
       function codeAddress(address) {
-        // google.maps.Geocoder()コンストラクタのインスタンスを生成
+        // Geocoderコンストラクタのインスタンスを生成
         var geocoder = new google.maps.Geocoder();
     
-        // 地図表示に関するオプション
+        // 地図の初期設定
         var mapOptions = {
           zoom: 16,
           center: { lat: 35.662, lng: 139.703 },
           mapTypeId: "roadmap"
         };
     
-        // 地図を表示させるインスタンスを生成
+        // ビューのmap領域に上記の設定で地図を表示
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
         console.log(map);
         
-        //マーカー変数用意
+        //マーカー変数を宣言
         var marker;
 
-        // geocoder.geocode()メソッドを実行 
+        // コンストラクタからgeocodeを実行 
         geocoder.geocode( { 'address': address}, function(results, status) {
-          // ジオコーディングが成功した場合
+          // 成功時
           if (status === 'OK') {
             
-            // 変換した緯度・経度情報を地図の中心に表示
+            // 緯度経度情報から該当の場所を地図の中心に表示
             map.setCenter(results[0].geometry.location);
             
-            //☆表示している地図上の緯度経度
+            // マーカーの位置を指定するための、変数
+            // 緯度経度情報の配列を代入
             var latlng = results[0].geometry.location
-            marker = new google.maps.Marker({ // マーカーの追加
-              position: latlng, // マーカーを立てる位置を指定
-              map: map // マーカーを立てる地図を指定
+            marker = new google.maps.Marker({ // マーカーを追加
+              position: latlng, // 位置を指定
+              map: map // 地図を指定
             });
 
+            // 地点の標高情報を取得
             function getElevation(latlng) {
 
               // 要素が１つでも配列に…。
               var locations = [latlng]
 
-              // ElevationServiceのコンストラクタ
+              // ElevationServiceのコンストラクタを生成
               var elevation = new google.maps.ElevationService();
 
               // リクエストを発行
@@ -102,9 +104,11 @@
                 if (status === 'OK') {
                   if (results[0].elevation) {
 
-                    // 標高ゲット！
+                    // ビューで標高情報を表示する
+                    // 宣言した変数に取得した標高情報を代入
                     var elevation = results[0].elevation;
                     console.log(elevation);
+                    //小数点を切り捨てた値を、elevに表示
                     document.getElementById('elev').value = Math.floor(elevation);
                     }
               } else {
@@ -112,7 +116,7 @@
                   }
             });
           }
-
+          //標高情報の取得、ビューでの表示を実行
           getElevation(latlng);
 
           // ジオコーディングが成功しなかった場合
@@ -164,12 +168,14 @@
     $(document).ready(function() {
       // 入力フォームを取得して、同名の変数に自動補完機能を付与
       var from_places = new google.maps.places.Autocomplete(
+        // 出発地
         document.getElementById("from_places")
       );
       var to_places = new google.maps.places.Autocomplete(
+        // 避難先
         document.getElementById("to_places")
       );
-      // フォームに入力されたら文字列を取得、整形して、jqueryで値をフォームに渡す
+      // 自動補完された情報を入力フォームに表示
       google.maps.event.addListener(from_places, "place_changed", function() {
         var from_place = from_places.getPlace();
         var from_address = from_place.formatted_address;
