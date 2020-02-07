@@ -71,7 +71,7 @@
         
         //マーカー変数を宣言
         var marker;
-
+        let latlng;
         // コンストラクタからgeocodeを実行 
         geocoder.geocode( { 'address': address}, function(results, status) {
           // 成功時
@@ -82,7 +82,7 @@
             
             // マーカーの位置を指定するための、変数
             // 緯度経度情報の配列を代入
-            var latlng = results[0].geometry.location
+            latlng = results[0].geometry.location
             marker = new google.maps.Marker({ // マーカーを追加
               position: latlng, // 位置を指定
               map: map // 地図を指定
@@ -129,14 +129,9 @@
         map.addListener('click', function(e) {
           getClickLatLng(e.latLng, map);
         });
-        function getClickLatLng(lat_lng, map) {
-          
-          //☆表示している地図上の緯度経度
-          document.getElementById('lat').value=lat_lng.lat();
-          document.getElementById('lng').value=lat_lng.lng();
-        
+        function getClickLatLng(latlng, map) {
           // 座標の中心をずらす
-          map.panTo(lat_lng);
+          map.panTo(latlng);
         }
       }
       
