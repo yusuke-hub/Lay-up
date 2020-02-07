@@ -3,9 +3,9 @@ class UsersController < ApplicationController
     @belonging = Belonging.new
     @search = User.search(params[:q])
       if params[:q]
-        @results = @search.result(distinct: true)
+        @results = @search.result(distinct: true).page(params[:page])
       else
-        @results = User.all
+        @results = User.all.page(params[:page])
       end
   end
   def show

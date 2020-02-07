@@ -77,6 +77,7 @@ gem 'pry-byebug'
 gem 'ransack'
 gem 'rails-i18n', '~> 5.1'
 
+
 group :production do
   gem 'mysql2'
 end

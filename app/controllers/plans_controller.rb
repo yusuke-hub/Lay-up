@@ -11,7 +11,7 @@ class PlansController < ApplicationController
     @plan.save!
   end 
   def show
-    @plans = Plan.where(user_id: params[:id])
+    @plans = Plan.where(user_id: params[:id]).page(params[:page])
     @user = User.find(params[:id])
     check_flg = false
     if current_user.belongings.blank?

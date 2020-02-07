@@ -11,6 +11,10 @@
       <%= f.submit '検索', class:'btn btn-sm btn-secondary mt-3 mr-3' %>
     </div>
   <% end %>
+  <div class="mt-3">
+    <%= paginate @results %>
+    <%= page_entries_info @results %>
+  </div>
   <table class="table table-bordered">
       <tr>
           <th>ユーザー名</th>
