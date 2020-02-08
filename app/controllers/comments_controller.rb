@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to plan_detail_path(params[:plan_id])
+    head :no_content
   end
   def show
   end

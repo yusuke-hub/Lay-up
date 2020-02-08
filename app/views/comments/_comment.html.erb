@@ -9,7 +9,7 @@
       <div class="content inline mt-4">
         <%= comment.content %>
       </div>
-      <%= link_to  plan_comment_path(plan.id, comment.id), method: :delete do %>
+      <%= link_to  plan_comment_path(plan.id, comment.id), remote: true, method: :delete, class: 'delete' do %>
         <i class="fas fa-trash pull-right mb-1 mr-3"></i>
       <% end %>
     </div>
