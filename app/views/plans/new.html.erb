@@ -206,8 +206,8 @@
         if (status != google.maps.DirectionsStatus.OK) {
           $("#result").html(err);
         } else {
-          departure = response.origin;
-          shelter = response.destination;
+          // departure = response.origin;
+          // shelter = response.destination;
           if (status === "ZERO_RESULTS") {
             $("#result").html(
               "Better get on a plane. There are no roads between " +
@@ -222,10 +222,12 @@
             directionsRenderer.setDirections(response);
             var legs = response.routes[0].legs;
             console.log(legs);
-            var distance_in_meter = legs.distance.text;
-            var duration_text = legs.duration.text;
-            $("#in_meter").text(distance_in_meter.toFixed(2));
-            $("#duration_text").text(duration_text);
+            distance = legs[0].distance.value;
+            duration = legs[0].duration;
+            departure = legs[0].start_address
+            shelter = legs[0].end_address
+            $("#in_meter").text(distance.toFixed(2));
+            $("#duration_text").text(duration.text);
             $("#from").text(departure);
             $("#to").text(shelter);
           }
@@ -250,7 +252,7 @@
             <% end %>
               departure: departure,
               shelter: shelter,
-              distance: distance.value,
+              distance: distance,
               duration: duration.value
           }
         },
