@@ -5,6 +5,8 @@
 	<h5 class="mb-4"><%= @plan.user.name %>さんの避難計画 >> 避難計画詳細</h5>
 <% end %>
 	<h3>避難計画詳細</h3>
+  <div id="map"></div>
+	<div id="results"></div>
 	<table class="table table-bordered">
 		<tr>
 			<th>日付</th>
@@ -48,6 +50,37 @@
 <%= render 'layouts/back_btn'%>   
        
 <script>
+  // 距離と時間を計算する関数を定義
+  window.onload = function describeRoute() {
+  // Directionsに対して、2地点間のルート表示に必要な値を渡す
+    var directionService = new google.maps.DirectionsService();
+    directionService.route({
+        origin: "<%= @plan.departure %>",
+        destination: "<%= @plan.shelter %>",
+        travelMode: google.maps.TravelMode.WALKING
+      }, callback
+    )
+	};	
+  function callback(response, status) {
+    if (status != google.maps.DirectionsStatus.OK) {
+      $("#result").html(err);
+    } else {
+      if (status === "ZERO_RESULTS") {
+        $("#result").html(
+          "Better get on a plane. There are no roads between " +
+            departure +
+            " and " +
+            shelter
+        );
+      } else {
+        var map = new google.maps.Map(document.getElementById("map"))
+        var directionsRenderer = new google.maps.DirectionsRenderer();
+        directionsRenderer.setMap(map);            
+				directionsRenderer.setDirections(response);
+				}
+			}
+  	}
+	
 	$(document).ready(function() {
 		function buildHTML(comment) {
 			var html = $('<li class="comment">').append(comment.content);
