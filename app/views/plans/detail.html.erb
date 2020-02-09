@@ -48,7 +48,7 @@
 		<% end %>
 </div>
 <%= render 'layouts/back_btn'%>   
-       
+<%= javascript_include_tag 'delete_byAjax.js' %>
 <script>
   // 距離と時間を計算する関数を定義
   window.onload = function describeRoute() {
@@ -116,17 +116,6 @@
 			})
 			.fail(function() {
 				alert('コメントに失敗しました')
-			});
-		});
-	});
-
-	$(document).ready(function() {
-		document.querySelectorAll('.delete').forEach(function(a){
-			a.addEventListener('ajax:success', function() {
-				var td = a.parentNode;
-				var tr = td.parentNode;
-				var comment_box = tr.parentNode;
-				comment_box.style.display = 'none';
 			});
 		});
 	});

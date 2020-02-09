@@ -16,3 +16,4 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require plans
+//= require delete_byAjax
