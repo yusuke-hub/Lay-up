@@ -77,6 +77,12 @@
         var directionsRenderer = new google.maps.DirectionsRenderer();
         directionsRenderer.setMap(map);            
 				directionsRenderer.setDirections(response);
+        map.addListener('click', function(e) {
+          getClickLatLng(e.latLng, map);
+        });
+        function getClickLatLng(latlng, map) {
+          map.panTo(latlng);
+        }				
 				}
 			}
   	}

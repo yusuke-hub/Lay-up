@@ -4,6 +4,7 @@
  <% else %>
   <h3><%= @user.name %>さんの避難計画</h3>
  <% end %>
+ <div id="map"></div>
 	<table class="table table-bordered">
 		<tr>
 			<th>日付(<span style="border-bottom: solid 1px #eb6100;">ここからコメント</span>)</th>
@@ -34,6 +35,54 @@
 	<%= page_entries_info @plans %>
 </div>
 <script>
+// let shelter;
+// 	var setMarker = (function() {
+//     function codeAddress(shelter) {
+// 			var geocoder = new google.maps.Geocoder();
+
+// 			var mapOptions = {
+// 				zoom: 9,
+// 				center: { lat: 35.662, lng: 139.703 },
+// 				mapTypeId: "roadmap"
+// 			};
+
+// 			var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+// 			console.log(map);
+
+// 			var marker;
+// 			let latlng;
+
+// 			geocoder.geocode( { 'address': shelter }, function(results, status) {
+
+// 				if (status === 'OK') {
+					
+// 					map.setCenter(results[0].geometry.location);
+					
+// 					latlng = results[0].geometry.location
+// 					marker = new google.maps.Marker({ 
+// 						position: latlng, 
+// 						map: map 
+// 					})
+// 				}
+// 			})
+// 		}
+// 	});
+// 		function getShelter(){
+// 				var plans = current_user.plans
+// 				plans.forEach( function( plan ) {
+// 					shelter = plan.shelter
+// 					codeAddress(shelter);
+// 				})	
+// 		}		
+//   	window.onload = function() {
+// 			var plans = current_user.plans
+// 			plans.forEach( function( plan ) {
+// 				shelter = plan.shelter
+// 		  	codeAddress(shelter);		
+// 			})
+// 		}
+// 	getShelter();
+
 	$(document).ready(function() {
 		document.querySelectorAll('.delete').forEach(function(a){
 			a.addEventListener('ajax:success', function() {
