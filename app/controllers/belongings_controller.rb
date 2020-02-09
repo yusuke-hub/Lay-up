@@ -12,7 +12,7 @@ class BelongingsController < ApplicationController
   def destroy
     @belonging = Belonging.find(params[:id])
     @belonging.destroy
-    redirect_to groups_path
+    head :no_content
   end
   private
   def belonging_params
