@@ -45,31 +45,89 @@ main {
   color: #eb6100;
   border-bottom: solid 1px #eb6100;
 }
-#intro-img {
-  width: 240px;
-  position: absolute;
-  top: 540px;
-  left: 380px;
+#usage {
+  font-size: 32px;
 }
 #guide {
   background: linear-gradient(transparent 85%, #a9e2f3 60%);
 }
 .text2 {
-  height: 300px;
-  margin: 30px auto 0;
-  position: relative;
+  width: 100%;
+  height: 660px;
 }
-.text-box2 {
+.text2-container {
+  position: relative;
+  margin-left: 20%;
+  height: 300px;
+  width: 60%;
+}
+.text2-box {
   position: absolute;
-  top: -18px;
-  left: 720px;
+  left: 11%;
+  float: left;
+  width: 70%;
+}
+.text2-img {
+  position: absolute;
+  left: 54%;
+  top: 0;
+}
+#intro-img {
+  float: left;
+  width: 36%;
+  vertical-align: baseline;
 }
 .guide-text {
   font-size: 20px;
 }
 
+@media (max-width: 530px) {
+  .text2 {
+    height: 1060px;
+  }
+  main {
+    height: 1400px;
+  }
+}
+@media (max-width: 740px) {
+  .c {
+    width: 100%;
+  }
+  .text {
+    height: 450px;
+  }
+  .text2 {
+    padding-top: 200px;
+    height: 500px;
+  }
+  .text-content {
+    margin-bottom: 36px;
+  }
+}
+@media (max-width: 934px) {
+  .text2 {
+    padding-top: 120px;
+  }
+  main {
+    height: 1150px;
+  }
+}
 @media (max-width: 1000px) {
   .c {
     width: 84%;
+  }
+  // .text2 {
+  //   margin-top: 84px;
+  // }
+  #usage {
+    font-size: 24px;
+  }
+  .guide-text {
+    font-size: 16px;
+  }
+}
+@media (max-width: 1200px) {
+  .text2-img {
+    display: none;
   }
 }
