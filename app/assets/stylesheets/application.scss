@@ -225,3 +225,32 @@ footer p {
 #back img {
   width: 50px;
 }
+
+@media (max-width: 680px) {
+  .current_user_image {
+    width: 36px;
+    left: 40%;
+  }
+  #current_user_name {
+    font-size: 18px;
+    left: 40.5%;
+  }
+  .nav li a {
+    font-size: 12px;
+  }
+}
+@media (max-width: 825px) {
+  .nav li a {
+    font-size: 14px;
+    padding: 4px 3px;
+    font-weight: bold;
+  }
+}
+@media (max-width: 910px) {
+  .shelter {
+    width: 42%;
+  }
+  .nav li a {
+    font-size: 18px;
+  }
+}

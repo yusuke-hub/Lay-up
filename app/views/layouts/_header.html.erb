@@ -5,7 +5,7 @@
         <% end %>
         <% if user_signed_in? %>
             <div id="current_user_info">
-                <%= link_to  user_path(current_user.id), id:     'current_user-link' do %>
+                <%= link_to  user_path(current_user.id), id: 'current_user-link' do %>
                         <%= attachment_image_tag current_user, :profile_image,  format: 'png', class: 'rounded-circle  current_user_image mb-3', fallback: 'no-image.png' %>
                         <p id="current_user_name"><%= current_user.name %>さん</p>
                 <% end %>
