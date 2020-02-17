@@ -89,12 +89,12 @@ var getMap = (function() {
       // 検索ボタンに指定したid要素を取得
       var button = document.getElementById("map_button");
       // 検索ボタンが押された時の処理
-      button.addListener("click", function(e) {
+      document.getElementById("map_button").onclick = function() {
         // フォームの入力住所情報を取得
         var address = document.getElementById("address").value;
         // 上記の住所を引数としてcodeAddress関数を実行
         codeAddress(address);
-      });
+      };
 
       //読み込まれたときに地図を表示
       window.onload = function() {
