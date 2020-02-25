@@ -1,6 +1,6 @@
 # 🏠 Noah ~ 備えよう ~
-非常時の避難先を登録し、グループで共有できるアプリケーションです！
 http://13.114.15.249/
+[イメージ画像](https://media.istockphoto.com/vectors/noah-and-the-ark-before-great-flood-vector-id1149183486?k=6&m=1149183486&s=612x612&w=0&h=TavYjCxR7LDnjtHq7r9iagGk7oo3QdlCstYt0mULuJ4=)
 ### 👤 テストユーザー
 メールアドレス： test1@test.com  /  パスワード: 111111
 
