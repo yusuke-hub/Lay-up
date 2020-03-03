@@ -95,7 +95,6 @@ var getMap = (function() {
         // 上記の住所を引数としてcodeAddress関数を実行
         codeAddress(address);
       };
-
       //読み込まれたときに地図を表示
       window.onload = function() {
         // フォームに入力された住所情報を取得
@@ -154,7 +153,7 @@ $(document).ready(function() {
 
   function callback(response, status) {
     if (status != google.maps.DirectionsStatus.OK) {
-      $("#result").html(err);
+      $("#result").html(ERR);
     } else {
       if (status === "ZERO_RESULTS") {
         $("#result").html(
@@ -190,13 +189,13 @@ $(document).ready(function() {
   // Ajaxを用いて、distanceMatrixで得られた情報を保存する
   $(".registration").click(function(_e) {
     console.log("登録ボタンが押されました");
-    let user_id = $(".current_user_id").val();
+    var login_user = document.getElementById("map").value;
     $.ajax({
       type: "POST",
       url: "/plans",
       data: {
         plan: {
-          user_id: user_id,
+          user_id: login_user,
           departure: departure,
           shelter: shelter,
           distance: distance,
