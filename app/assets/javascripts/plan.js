@@ -128,7 +128,7 @@ $(document).ready(function() {
     var to_address = to_place.formatted_address;
     $("#destination").val(to_address);
   });
-
+  let user_id;
   let departure;
   let shelter;
   let distance;
@@ -188,14 +188,14 @@ $(document).ready(function() {
   });
   // Ajaxを用いて、distanceMatrixで得られた情報を保存する
   $(".registration").click(function(_e) {
+    user_id = document.getElementById(user_id_text).value;
     console.log("登録ボタンが押されました");
-    var login_user = document.getElementById("map").value;
     $.ajax({
       type: "POST",
       url: "/plans",
       data: {
         plan: {
-          user_id: login_user,
+          user_id: user_id,
           departure: departure,
           shelter: shelter,
           distance: distance,
