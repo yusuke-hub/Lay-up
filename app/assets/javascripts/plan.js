@@ -1,5 +1,5 @@
 "use strict";
-var getMap = (function() {
+var getMap = (function () {
   function codeAddress(address) {
     // Geocoderコンストラクタのインスタンスを生成
     var geocoder = new google.maps.Geocoder();
@@ -8,7 +8,7 @@ var getMap = (function() {
     var mapOptions = {
       zoom: 16,
       center: { lat: 35.662, lng: 139.703 },
-      mapTypeId: "roadmap"
+      mapTypeId: "roadmap",
     };
 
     // ビューのmap領域に上記の設定で地図を表示
@@ -19,7 +19,7 @@ var getMap = (function() {
     var marker;
     let latlng;
     // コンストラクタからgeocodeを実行
-    geocoder.geocode({ address: address }, function(results, status) {
+    geocoder.geocode({ address: address }, function (results, status) {
       // 成功時
       if (status === "OK") {
         // 緯度経度情報から該当の場所を地図の中心に表示
@@ -31,7 +31,7 @@ var getMap = (function() {
         marker = new google.maps.Marker({
           // マーカーを追加
           position: latlng, // 位置を指定
-          map: map // 地図を指定
+          map: map, // 地図を指定
         });
 
         // 地点の標高情報を取得
@@ -45,9 +45,9 @@ var getMap = (function() {
           // リクエストを発行
           elevation.getElevationForLocations(
             {
-              locations: locations
+              locations: locations,
             },
-            function(results, status) {
+            function (results, status) {
               if (status === "OK") {
                 if (results[0].elevation) {
                   // ビューで標高情報を表示する
@@ -67,6 +67,8 @@ var getMap = (function() {
         getElevation(latlng);
 
         // ジオコーディングが成功しなかった場合
+      } else if (status === "INVALID_REQUEST") {
+        console.log("Geocode waits for an address to be input");
       } else {
         console.log(
           "Geocode was not successful for the following reason: " + status
@@ -75,7 +77,7 @@ var getMap = (function() {
     });
 
     // 地図をクリックで位置変更
-    map.addListener("click", function(e) {
+    map.addListener("click", function (e) {
       getClickLatLng(e.latLng, map);
     });
     function getClickLatLng(latlng, map) {
@@ -85,29 +87,29 @@ var getMap = (function() {
 
   //inputのvalueで検索して地図を表示
   return {
-    getAddress: function() {
-      // 検索ボタンに指定したid要素を取得
-      var button = document.getElementById("map_button");
-      // 検索ボタンが押された時の処理
-      document.getElementById("map_button").onclick = function() {
-        // フォームの入力住所情報を取得
-        var address = document.getElementById("address").value;
-        // 上記の住所を引数としてcodeAddress関数を実行
-        codeAddress(address);
-      };
+    getAddress: function () {
       //読み込まれたときに地図を表示
-      window.onload = function() {
+      window.onload = function () {
+        // 検索ボタンに指定したid要素を取得
+        let button = document.querySelector("#map_button");
+        // 検索ボタンが押された時の処理
+        button.addEventListener("click", function () {
+          // フォームの入力住所情報を取得
+          var address = document.getElementById("address").value;
+          // 上記の住所を引数としてcodeAddress関数を実行
+          codeAddress(address);
+        });
         // フォームに入力された住所情報を取得
         var address = document.getElementById("address").value;
         // 上記の住所を引数としてcodeAddress関数を実行
         codeAddress(address);
       };
-    }
+    },
   };
 })();
 getMap.getAddress();
 
-$(document).ready(function() {
+$(document).ready(function () {
   // 入力フォームを取得して、同名の変数に自動補完機能を付与
   var from_places = new google.maps.places.Autocomplete(
     // 出発地
@@ -118,17 +120,17 @@ $(document).ready(function() {
     document.getElementById("to_places")
   );
   // 自動補完された情報を入力フォームに表示
-  google.maps.event.addListener(from_places, "place_changed", function() {
+  google.maps.event.addListener(from_places, "place_changed", function () {
     var from_place = from_places.getPlace();
     var from_address = from_place.formatted_address;
     $("#origin").val(from_address);
   });
-  google.maps.event.addListener(to_places, "place_changed", function() {
+  google.maps.event.addListener(to_places, "place_changed", function () {
     var to_place = to_places.getPlace();
     var to_address = to_place.formatted_address;
     $("#destination").val(to_address);
   });
-  let user_id;
+
   let departure;
   let shelter;
   let distance;
@@ -145,7 +147,7 @@ $(document).ready(function() {
       {
         origin: origin,
         destination: destination,
-        travelMode: google.maps.TravelMode.WALKING
+        travelMode: google.maps.TravelMode.WALKING,
       },
       callback
     );
@@ -153,7 +155,7 @@ $(document).ready(function() {
 
   function callback(response, status) {
     if (status != google.maps.DirectionsStatus.OK) {
-      $("#result").html(ERR);
+      // $("#result").html(ERR);
     } else {
       if (status === "ZERO_RESULTS") {
         $("#result").html(
@@ -182,13 +184,12 @@ $(document).ready(function() {
   }
 
   // 2地点間の距離と時間を計算する
-  $("#distance_form").submit(function(e) {
+  $("#distance_form").submit(function (e) {
     e.preventDefault();
     calculateDistance();
   });
   // Ajaxを用いて、distanceMatrixで得られた情報を保存する
-  $(".registration").click(function(_e) {
-    user_id = document.getElementById(user_id_text).value;
+  $(".registration").click(function (e) {
     console.log("登録ボタンが押されました");
     $.ajax({
       type: "POST",
@@ -199,15 +200,15 @@ $(document).ready(function() {
           departure: departure,
           shelter: shelter,
           distance: distance,
-          duration: duration.value
-        }
+          duration: duration.value,
+        },
       },
-      datatype: "json"
+      datatype: "json",
     })
-      .done(function(data) {
+      .done(function (data) {
         window.location = "<%= plan_path(current_user.id) %>";
       })
-      .fail(function() {
+      .fail(function () {
         alert("登録に失敗しました");
       });
   });

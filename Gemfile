@@ -44,7 +44,11 @@ group :development, :test do
   gem 'rspec-parameterized'
   gem 'faker', '~> 2.0.0'
   gem 'shoulda-matchers'
-  gem 'rails-controller-testing'  
+  gem 'rails-controller-testing'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rbenv'    
 end
 
 group :development do
