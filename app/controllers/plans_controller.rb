@@ -8,7 +8,7 @@ class PlansController < ApplicationController
   end
   def create
     @plan = Plan.new(plan_params)
-    @plan.save!
+    @plan.save
   end 
   def show
     @plans = Plan.where(user_id: params[:id]).page(params[:page])
