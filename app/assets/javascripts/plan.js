@@ -190,6 +190,7 @@ $(document).ready(function () {
   });
   // Ajaxを用いて、distanceMatrixで得られた情報を保存する
   $(".registration").click(function (e) {
+    let user_id = parseInt(document.getElementById("user_id").value);
     console.log("登録ボタンが押されました");
     $.ajax({
       type: "POST",
@@ -206,7 +207,7 @@ $(document).ready(function () {
       datatype: "json",
     })
       .done(function (data) {
-        window.location = "<%= plan_path(current_user.id) %>";
+        window.location.href = "/plans/user_id";
       })
       .fail(function () {
         alert("登録に失敗しました");
