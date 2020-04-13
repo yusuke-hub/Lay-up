@@ -60,7 +60,7 @@
     $('.group').change(function() {
       group_id = $(this).has('option:selected').val()
       $.ajax({
-        // 送信形式にget設定
+        // 送信形式をpostに設定
         type: "POST",
         // getしたいurl
         url: "/belongings",
