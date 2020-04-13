@@ -207,7 +207,7 @@ $(document).ready(function () {
       datatype: "json",
     })
       .done(function (data) {
-        window.location.replace("plan_path(user_id)");
+        window.location = user_id;
       })
       .fail(function () {
         alert("登録に失敗しました");

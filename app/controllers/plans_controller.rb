@@ -9,6 +9,10 @@ class PlansController < ApplicationController
   def create
     @plan = Plan.new(plan_params)
     @plan.save
+    # binding.pry
+    respond_to do |format|
+      format.js { redirect_to plan_path(plan_params[:user_id]) }
+    end
   end 
   def show
     @plans = Plan.where(user_id: params[:id]).page(params[:page])
